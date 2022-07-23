@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="../">
+    </base>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extended Ampersand Notation</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <div id="content" class="content">
+        <h1>Extended Ampersand Notation</h1>
+        <p>
+            <b>Extended Ampersand Notation</b> (X&N) is the second part of <a href="googology/ampersand-notation.html">Ampersand Notation</a>.
+        </p>
+        </p>
+        <h2>Definition</h2>
+        <p>
+            Let @ represent any sequence of ampersand symbols (&) that can optionally be subscripted by non-negative integers.
+        </p>
+        <p>
+            A valid expression in B&N is of the form a[@b], where a and b are non-negative integers. b is optional and may be removed.
+            
+            B&N outputs a non-negative integer for every valid expression,
+            determined using this set of rules:
+        </p>
+        <ol>
+            <li>a[] = a<sup>2</sup></li>
+            <li>a[@0]= a[@]</li>
+            <li>b > 0: a[@b] = a[@b - 1][@b - 1]...[@b - 1], with a copies of "[@b - 1]"</li>
+            <li>a[@&] = a[@a]</li>
+            <li>a[@&<sub>0</sub>] = a[@&]</li>
+            <li>b > 0: a[@&<sub>b</sub>] = a[@&<sub>b - 1</sub>&<sub>b - 1</sub>...&<sub>b - 1</sub>&<sub>b - 1</sub>] with a copies of "&<sub>b - 1</sub>"</li>
+        </ol>
+        <h2>Examples</h2>
+        <p>
+        2[&<sub>1</sub>]
+        <br />= 2[&<sub>0</sub>&<sub>0</sub>]
+        <br />= 2[&&]
+        <br />= 2[&2]
+        <br />= 2[&1][&1]
+        <br />= 2[&0][&0][&1][&1]
+        <br />= 2[&][&][&1][&1]
+        <br />= 2[2][&][&1][&1]
+        <br />= 2[1][1][&][&1][&1]           
+        <br />...
+        </p>
+    </p>
+    </div>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/load-header.js"></script>
+</body>
+
+</html>
