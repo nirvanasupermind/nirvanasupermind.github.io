@@ -37,20 +37,30 @@
             <li>a[] = a<sup>a</sup></li>
             <li>a[@0]= a[@]</li>
             <li>b > 0: a[@b]= a[@b - 1][@b - 1]...[@b - 1][@b - 1], with a copies of "[@b - 1]"</li>
-            <li>a[@&]= a[@a]</li>
-            <li>a[@&]= a[@a]</li>
+            <li>a[@&] = a[@a]</li>
+            <li>a[@&<sub>0</sub>]= a[@&]</li>
             <li>x > 0: a[@&<sub>x</sub>]= a[@&<sub>x - 1</sub>&<sub>x - 1</sub>...&<sub>x - 1</sub>&<sub>x - 1</sub>] with a copies of "&<sub>x - 1</sub>"</sub></li>
         </ol>
         <h2>Examples</h2>
         <p>
-        2[&<sub>1</sub>]
-        <br />= 2[&<sub>0</sub>]
-        <br />= 2[&0][&0]
-        <br />= 2[&][&]
-        <br />= 2[2][&]
-        <br />= 2[1][1][&]
-        <br />= 2[0][0][1][&]
-        <br />= 2[][][1][&]
+        2[&<sub>1</sub>0]
+        <br />= 2[&<sub>1</sub>]
+        <br />= 2[&<sub>0</sub>&<sub>0</sub>]
+        <br />= 2[&&]
+        <br />= 2[&2]
+        <br />= 2[&1][&1]
+        <br />= 2[&0][&0][&1]
+        <br />= 2[&][&][&1]
+        <br />= ...
+
+        2[&<sub>2</sub>&1]
+        <br />= 2[&<sub>2</sub>&0][&<sub>2</sub>&0]
+        <br />= 2[&<sub>2</sub>&][&<sub>2</sub>&]
+        <br />= 2[&<sub>2</sub>2][&<sub>2</sub>&]
+        <br />= 2[&<sub>2</sub>1][&<sub>2</sub>1][&<sub>2</sub>&]
+        <br />= 2[&<sub>2</sub>0][&<sub>2</sub>0][&<sub>2</sub>1][&<sub>2</sub>&]
+        <br />= 2[&<sub>2</sub>][&<sub>2</sub>][&<sub>2</sub>1][&<sub>2</sub>&]
+        <br />= 2[&<sub>1</sub>&<sub>1</sub>][&<sub>2</sub>][&<sub>2</sub>1][&<sub>2</sub>&]
         <br />= ...
         <h2>Comparison</h2>
         <p>Below is a comparison of expressions in this notation with the <a href="https://googology.fandom.com/wiki/Fast-growing_hierarchy">fast-growing hierarchy</a>, using the Wainer hierarchy for fundamental sequences.</p>
