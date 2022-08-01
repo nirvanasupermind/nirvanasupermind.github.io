@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="../../">
+    </base>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Density Incremental</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <div id="content" class="content" style="text-align: center;">
+        <p id="density"></p>
+
+        <details>
+            <summary>Main</summary>
+            <div id="main">
+                <table id="compressors" class="centered"></table>
+                <p id="unlock"></p>
+            </div>
+        </details>
+        <br />
+        <br />
+
+        <details>
+            <summary>Achievements</summary>
+            <table id="achievements" class="centered"></table>
+        </details>
+
+        <br />
+        <br />
+
+        <details>
+            <summary>Options</summary>
+            <div id="options">
+                <input type="file" id="importSave" onchange="importSave();"></input>
+                <button id="exportSave" onclick="exportSave();">Export Save</button>
+                <button id="hardReset" onclick="hardReset();">Hard Reset</button>
+            </div>
+        </details>
+    </div>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/load-header.js"></script>
+    <script src="js/OmegaNum.min.js"></script>
+    <script src="js/density-incremental/automation.js"></script>
+    <script src="js/density-incremental/achievements.js"></script>    
+    <script src="js/density-incremental/render.js"></script>
+    <script src="js/density-incremental/main.js"></script>
+</body>
+
+</html>

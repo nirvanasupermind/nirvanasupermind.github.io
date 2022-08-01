@@ -4,12 +4,21 @@ body {
     color: white;
 }
 
+button, input {
+    font-family: Tahoma, sans-serif;
+}
+
 .nav {
     text-align: right;
 }
 
-.content {
+div.content {
     /* text-align: center; */
+}
+
+table.centered {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 a {
