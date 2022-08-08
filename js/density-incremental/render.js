@@ -6,21 +6,32 @@ function disp(num) {
     }
 }
 
-function render() {
-    testAchievements();
+// called every tick
+function fastRender() {
+    renderDensity();
+}
 
+// called every 10 ticks
+function slowRender() {
+    renderAchievements();
+    renderUnlock();
+}
+
+function renderDensity() {
     document.querySelector("#density").innerHTML = "<b>Density</b>: " + disp(savefile.density) + " kg/m<sup>3</sup> (+" + disp(savefile.densityRate) + " kg/m<sup>3</sup>/s)";
-    
+}
+
+function renderCompressors() {
     document.querySelector("#compressors").innerHTML = savefile.compressors.map((factor, idx) => {
         const cost = upgradeCompressorCost(idx);
         const upgradeButtonHTML = '<button onclick="upgradeCompressor(' + idx + ", " + cost + ');">Upgrade (Cost: ' + disp(cost) + ')</button>';
 
-        if(savefile.achievements["Unlock Compressor " + (idx + 1)]) {
-            return `<tr><td>Compressor ${(idx + 1).toString()}${bigSpace}</td><td>x${disp(factor)}${bigSpace}</td><td>${upgradeButtonHTML}</td></tr>`;
-        } else {
-            return "";
-        }
+        return `<tr><td>Compressor ${(idx + 1).toString()}${bigSpace}</td><td>x${disp(factor)}${bigSpace}</td><td>${upgradeButtonHTML}</td></tr>`;
     }).join("");
+}
+
+function renderAchievements() {
+    testAchievements();
 
     document.querySelector("#achievements").innerHTML = achievementNames.map((name, idx) => {
         const isComplete = savefile.achievements[name];
@@ -35,8 +46,9 @@ function render() {
 
         return `<tr><td> ${idx + 1}${bigSpace}</td><td>${name}${bigSpace}</td><td>${message}</td>`;
     }).join("");
+}
 
-
+function renderUnlock() {
     if(!savefile.achievements["Unlock Compressor 1"]) {
         document.querySelector("#unlock").innerHTML = "Unlock Compressor 1 at 10.0 kg/m<sup>3</sup>!";
     } else if(!savefile.achievements["Unlock Compressor 2"]) {

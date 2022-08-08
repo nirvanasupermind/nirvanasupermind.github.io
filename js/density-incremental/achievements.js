@@ -8,27 +8,37 @@ var achievementNames = [
 ];
 
 function testAchievements() {
-    if(savefile.density.gt(10)) {
+    if(savefile.density.gt(10) && !savefile.achievements["Unlock Compressor 1"]) {
         savefile.achievements["Unlock Compressor 1"] = true;
+        // savefile.compressors.push(OmegaNum(1));
+        renderCompressors();
     }
     
-    if(savefile.density.gt(1000)) {
+    if(savefile.density.gt(1000) && !savefile.achievements["Unlock Compressor 2"]) {
         savefile.achievements["Unlock Compressor 2"] = true;
+        savefile.compressors.push(OmegaNum(1));
+        renderCompressors();
     }
 
-    if(savefile.density.gt(100000)) {
+    if(savefile.density.gt(100000) && !savefile.achievements["Unlock Compressor 3"]) {
         savefile.achievements["Unlock Compressor 3"] = true;
+        savefile.compressors.push(OmegaNum(1));
+        renderCompressors();
     }
 
-    if(savefile.density.gt(10000000)) {
+    if(savefile.density.gt(10000000) && !savefile.achievements["Unlock Compressor 4"]) {
         savefile.achievements["Unlock Compressor 4"] = true;
+        savefile.compressors.push(OmegaNum(1));
+        renderCompressors();
     }
 
-    if(savefile.density.gt(1000000000)) {
+    if(savefile.density.gt(1000000000) && !savefile.achievements["Unlock Compressor 5"]) {
         savefile.achievements["Unlock Compressor 5"] = true;
+        savefile.compressors.push(OmegaNum(1));
+        renderCompressors();
     }
 
-    if(savefile.density.gt(1e11)) {
+    if(savefile.density.gt(1e11) && !savefile.achievements["Unlock Black Holes"]) {
         savefile.achievements["Unlock Black Holes"] = true;
     }
 }

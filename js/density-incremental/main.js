@@ -8,8 +8,8 @@ var savefile;
 function getDefaultSavefile() {
     return {
         density: OmegaNum(0),
-        densityRate: OmegaNum(0),
-        compressors: new Array(6).fill(OmegaNum(1)),
+        densityRate: OmegaNum(1),
+        compressors: [OmegaNum(1)],
         achievements: {},
         lastOnline: Date.now()
     };
@@ -39,6 +39,7 @@ function hardReset() {
     if (confirm("Are you sure you want to perform a hard reset?")) {
         savefile = getDefaultSavefile();
         save();
+        window.location.reload();
     }
 }
 
@@ -73,8 +74,10 @@ function main() {
     setInterval(() => {
         savefile.densityRate = savefile.compressors.reduce(OmegaNum.mul);
         savefile.density = savefile.density.add(savefile.densityRate.mul(0.1));
-        render();
+        fastRender();
     }, msPerTick);
+
+    setInterval(slowRender, msPerTick * 10);
 }
 
 window.onload = main;
