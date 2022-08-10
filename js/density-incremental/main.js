@@ -2,14 +2,14 @@ const msPerTick = 100;
 
 const bigSpace = new Array(10).join("&nbsp;");
 
-
 var savefile;
 
 function getDefaultSavefile() {
     return {
-        density: OmegaNum(0),
-        densityRate: OmegaNum(1),
+        density: OmegaNum.ZERO,
+        densityRate: OmegaNum.ONE,
         compressors: [],
+        blackHoles: [],
         achievements: {},
         lastOnline: Date.now()
     };
@@ -43,6 +43,10 @@ function hardReset() {
     }
 }
 
+function unlockBlackHoles() {
+    savefile.density = OmegaNum(1e10);
+}
+
 function load() {
     var savefileJSON = localStorage.getItem("savefileJSON");
 
@@ -63,7 +67,6 @@ function load() {
 function recordOfflineProgress() {
     var ticksPassed = (Date.now() - savefile.lastOnline) / msPerTick;
     savefile.density = savefile.density.add(savefile.densityRate.mul(0.1 * ticksPassed));  
-    renderCompressors();  
 }
 
 function main() {
@@ -71,14 +74,29 @@ function main() {
 
     recordOfflineProgress();
 
-    // Game loop
+    onloadRender();  
+
     setInterval(() => {
         savefile.densityRate = savefile.compressors.reduce(OmegaNum.mul, OmegaNum.ONE);
         savefile.density = savefile.density.add(savefile.densityRate.mul(0.1));
+
         fastRender();
     }, msPerTick);
 
-    setInterval(slowRender, msPerTick * 10);
+    setInterval(() => {
+        if(savefile.blackHoles.length) {
+            savefile.compressors.forEach((_, idx) => {
+                savefile.compressors[idx] = savefile.compressors[idx].add(savefile.blackHoles[0]);
+                renderCompressors();
+            });
+
+            for(var i = 0; i < savefile.blackHoles.length - 1; i++) {
+                savefile.blackHoles[level] = savefile.blackHoles[level].add(savefile.blackHoles[level + 1]);
+            }
+        }
+
+        slowRender();
+    }, msPerTick * 10);
 }
 
 window.onload = main;

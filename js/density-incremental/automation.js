@@ -9,7 +9,12 @@ function spendDensity(cost) {
 
 function upgradeCompressorCost(idx) {
     const factor = savefile.compressors[idx];
-    return OmegaNum.pow(2, factor - 1).mul(OmegaNum.pow(100, idx + 0.5));
+
+    if(idx == 0) {
+        return OmegaNum.pow(2, factor - 1).mul(OmegaNum(10));
+    }
+
+    return OmegaNum.pow(2, factor - 1).mul(OmegaNum.pow(100, idx));
 }
 
 function upgradeCompressor(idx, cost) {
@@ -18,4 +23,17 @@ function upgradeCompressor(idx, cost) {
     }
 
     renderCompressors();
+}
+
+function upgradeBlackHoleCost(idx) {
+    const potency = savefile.blackHoles[idx];
+    return OmegaNum.pow(10, OmegaNum(10).mul(potency.add(1)));
+}
+
+function upgradeBlackHole(idx, cost) {
+    if(spendDensity(cost)) {
+        savefile.blackHoles[idx] = savefile.blackHoles[idx].add(1);
+    }
+
+    renderBlackHoles();
 }

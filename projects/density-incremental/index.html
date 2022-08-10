@@ -20,7 +20,16 @@
         <details>
             <summary>Main</summary>
             <div id="main">
-                <table id="compressors" class="centered"></table>
+                <details id="compressors-collapsible" style="visibility: hidden;">
+                    <summary><span style="color: #aaa">Compressors</span></summary>
+                    <table id="compressors-table" class="centered"></table>
+                </details>
+                <br />
+                <details id="black-holes-collapsible" style="visibility: hidden;">
+                    <summary><span style="color: #aaa">Black Holes</span></summary>
+                    <table id="black-holes-table" class="centered"></table>
+                </details>
+
                 <p id="unlock"></p>
             </div>
         </details>
@@ -41,6 +50,8 @@
                 <input type="file" id="importSave" onchange="importSave();"></input>
                 <button id="exportSave" onclick="exportSave();">Export Save</button>
                 <button id="hardReset" onclick="hardReset();">Hard Reset</button>
+                <hr />
+                <button id="unlockBlackHoles" onclick="unlockBlackHoles();">Immediately Unlock Black Holes (for testing)</button>                
             </div>
         </details>
     </div>
