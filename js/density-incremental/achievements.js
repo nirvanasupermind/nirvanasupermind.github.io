@@ -10,7 +10,7 @@ var achievementNames = [
 function testAchievements() {
     if(savefile.density.gt(10) && !savefile.achievements["Unlock Compressor 1"]) {
         savefile.achievements["Unlock Compressor 1"] = true;
-        // savefile.compressors.push(OmegaNum(1));
+        savefile.compressors.push(OmegaNum(1));
         renderCompressors();
     }
     

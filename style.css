@@ -8,12 +8,12 @@ button, input {
     font-family: Tahoma, sans-serif;
 }
 
-.nav {
+div.nav {
     text-align: right;
 }
 
 div.content {
-    /* text-align: center; */
+    text-align: left;
 }
 
 table.centered {

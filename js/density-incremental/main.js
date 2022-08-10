@@ -9,7 +9,7 @@ function getDefaultSavefile() {
     return {
         density: OmegaNum(0),
         densityRate: OmegaNum(1),
-        compressors: [OmegaNum(1)],
+        compressors: [],
         achievements: {},
         lastOnline: Date.now()
     };
@@ -62,7 +62,8 @@ function load() {
 
 function recordOfflineProgress() {
     var ticksPassed = (Date.now() - savefile.lastOnline) / msPerTick;
-    savefile.density = savefile.density.add(savefile.densityRate.mul(0.1 * ticksPassed));    
+    savefile.density = savefile.density.add(savefile.densityRate.mul(0.1 * ticksPassed));  
+    renderCompressors();  
 }
 
 function main() {
@@ -72,7 +73,7 @@ function main() {
 
     // Game loop
     setInterval(() => {
-        savefile.densityRate = savefile.compressors.reduce(OmegaNum.mul);
+        savefile.densityRate = savefile.compressors.reduce(OmegaNum.mul, OmegaNum.ONE);
         savefile.density = savefile.density.add(savefile.densityRate.mul(0.1));
         fastRender();
     }, msPerTick);
