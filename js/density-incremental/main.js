@@ -65,10 +65,10 @@ function load() {
 }
 
 function recordOfflineProgress() {
-    var ticksPassed = (Date.now() - savefile.lastOnline) / msPerTick;
+        var ticksPassed = (Date.now() - savefile.lastOnline) / msPerTick;
 
     for(var i = 0; i < savefile.compressors.length; i++) {
-        savefile.compressors[i] = savefile.compressors[i].add(savefile.blackHoles[0].mul(0.1 * ticksPassed).floor()); 
+        savefile.compressors[i] = savefile.compressors[i].add(savefile.blackHoles[0].mul(0.1 * ticksPassed)).floor();
     }
 
     savefile.densityRate = savefile.compressors.reduce(OmegaNum.mul, OmegaNum.ONE);
