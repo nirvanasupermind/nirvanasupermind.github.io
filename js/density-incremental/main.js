@@ -66,7 +66,14 @@ function load() {
 
 function recordOfflineProgress() {
     var ticksPassed = (Date.now() - savefile.lastOnline) / msPerTick;
-    savefile.density = savefile.density.add(savefile.densityRate.mul(0.1 * ticksPassed));  
+
+    for(var i = 0; i < savefile.compressors.length; i++) {
+        savefile.compressors[i] = savefile.compressors[i].add(savefile.blackHoles[0].mul(0.1 * ticksPassed).floor()); 
+    }
+
+    savefile.densityRate = savefile.compressors.reduce(OmegaNum.mul, OmegaNum.ONE);
+
+    savefile.density = savefile.density.add(savefile.densityRate.mul(0.1 * ticksPassed)); 
 }
 
 function main() {

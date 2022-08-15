@@ -93,10 +93,10 @@ function renderUnlock() {
 
 function showCollapsibles() {
     if(savefile.achievements["Unlock Compressor 1"]) {
-        document.querySelector("#compressors-collapsible").style.visibility = "visible";
+        document.querySelector("#compressors-collapsible").style.display = "block";
     } 
 
     if(savefile.achievements["Unlock Level 1 Black Holes"]) {
-        document.querySelector("#black-holes-collapsible").style.visibility = "visible";
+        document.querySelector("#black-holes-collapsible").style.display = "block";
     }
 }

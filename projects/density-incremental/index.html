@@ -13,24 +13,21 @@
 
 <body>
     <div id="header"></div>
-
     <div id="content" class="content" style="text-align: center;">
         <p id="density"></p>
-
         <details>
             <summary>Main</summary>
             <div id="main">
-                <details id="compressors-collapsible" style="visibility: hidden;">
+                <details id="compressors-collapsible" style="display: none;">
                     <summary><span style="color: #aaa">Compressors</span></summary>
                     <table id="compressors-table" class="centered"></table>
                 </details>
                 <br />
-                <details id="black-holes-collapsible" style="visibility: hidden;">
+                <details id="black-holes-collapsible" style="display: none;">
                     <summary><span style="color: #aaa">Black Holes</span></summary>
                     <table id="black-holes-table" class="centered"></table>
                 </details>
-
-                <p id="unlock"></p>
+                <span id="unlock"></span>
             </div>
         </details>
         <br />
@@ -43,7 +40,7 @@
 
         <br />
         <br />
-
+œ
         <details>
             <summary>Options</summary>
             <div id="options">
@@ -54,6 +51,8 @@
                 <button id="unlockBlackHoles" onclick="unlockBlackHoles();">Immediately Unlock Black Holes (for testing)</button>                
             </div>
         </details>
+        <br /><br />
+        <a href="https://discord.gg/85bFJfBM5u">Density Incremental Server</a>
     </div>
 
     <script src="js/jquery-3.6.0.min.js"></script>
