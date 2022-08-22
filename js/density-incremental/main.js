@@ -1,4 +1,4 @@
-const msPerTick = 100;
+const msPerTick = 40;
 
 const bigSpace = new Array(10).join("&nbsp;");
 
@@ -45,6 +45,8 @@ function hardReset() {
 
 function unlockBlackHoles() {
     savefile.density = OmegaNum(1e10);
+    // savefile.blackHoles.push(OmegaNum(1));
+    // upgradeBlackHole(0, OmegaNum(1e10));
 }
 
 function load() {
@@ -67,8 +69,14 @@ function load() {
 function recordOfflineProgress() {
         var ticksPassed = (Date.now() - savefile.lastOnline) / msPerTick;
 
-    for(var i = 0; i < savefile.compressors.length; i++) {
-        savefile.compressors[i] = savefile.compressors[i].add(savefile.blackHoles[0].mul(0.1 * ticksPassed)).floor();
+    if(savefile.blackHoles.length) {
+        for(var i = 0; i < savefile.compressors.length; i++) {
+            savefile.compressors[i] = savefile.compressors[i].mul(savefile.blackHoles[0].pow(0.1 * ticksPassed));
+        }
+
+        for(var i = 0; i < savefile.blackHoles.length - 1; i++) {
+            savefile.blackHoles[i] = savefile.blackHoles[i].mul(savefile.blackHoles[i + 1].pow(0.1 * ticksPassed));
+        }
     }
 
     savefile.densityRate = savefile.compressors.reduce(OmegaNum.mul, OmegaNum.ONE);
@@ -85,7 +93,7 @@ function main() {
 
     setInterval(() => {
         savefile.densityRate = savefile.compressors.reduce(OmegaNum.mul, OmegaNum.ONE);
-        savefile.density = savefile.density.add(savefile.densityRate.mul(0.1));
+        savefile.density = savefile.density.add(savefile.densityRate.mul(msPerTick * 0.001));
 
         fastRender();
     }, msPerTick);
@@ -93,17 +101,18 @@ function main() {
     setInterval(() => {
         if(savefile.blackHoles.length) {
             savefile.compressors.forEach((_, idx) => {
-                savefile.compressors[idx] = savefile.compressors[idx].add(savefile.blackHoles[0]);
+                savefile.compressors[idx] = savefile.compressors[idx].mul(savefile.blackHoles[0]);
                 renderCompressors();
             });
 
             for(var i = 0; i < savefile.blackHoles.length - 1; i++) {
-                savefile.blackHoles[level] = savefile.blackHoles[level].add(savefile.blackHoles[level + 1]);
+                savefile.blackHoles[i] = savefile.blackHoles[i].mul(savefile.blackHoles[i + 1]);
+                renderBlackHoles();
             }
         }
 
         slowRender();
-    }, msPerTick * 10);
+    }, 1000);
 }
 
 window.onload = main;

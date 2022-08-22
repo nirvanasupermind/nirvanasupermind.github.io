@@ -27,12 +27,14 @@ function upgradeCompressor(idx, cost) {
 
 function upgradeBlackHoleCost(idx) {
     const potency = savefile.blackHoles[idx];
-    return OmegaNum.pow(10, OmegaNum(10).mul(potency.add(1)));
+    if(idx == 0) {
+    return OmegaNum.pow(10, OmegaNum.pow(10, idx + 1).mul(potency.sub(0.99).mul(100)));
+    }
 }
 
 function upgradeBlackHole(idx, cost) {
     if(spendDensity(cost)) {
-        savefile.blackHoles[idx] = savefile.blackHoles[idx].add(1);
+        savefile.blackHoles[idx] = savefile.blackHoles[idx].add(0.02);
     }
 
     renderBlackHoles();

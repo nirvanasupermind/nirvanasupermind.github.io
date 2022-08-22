@@ -4,7 +4,8 @@ const achievementNames = [
     "Unlock Compressor 3",   
     "Unlock Compressor 4",
     "Unlock Compressor 5", 
-    "Unlock Level 1 Black Holes"
+    "Unlock Level 1 Black Holes",
+    "Unlock Level 2 Black Holes"
 ];
 
 function testAchievements() {
@@ -40,8 +41,14 @@ function testAchievements() {
 
     if(savefile.density.gt(1e10) && !savefile.achievements["Unlock Level 1 Black Holes"]) {
         savefile.achievements["Unlock Level 1 Black Holes"] = true;
-        savefile.blackHoles.push(OmegaNum.ZERO);
+        savefile.blackHoles.push(OmegaNum.ONE);
         onloadRender();
         document.querySelector("#black-holes-collapsible").style.visibility = "visible";
+    }
+
+    if(savefile.density.gt(1e100) && !savefile.achievements["Unlock Level 2 Black Holes"]) {
+        savefile.achievements["Unlock Level 2 Black Holes"] = true;
+        savefile.blackHoles.push(OmegaNum.ONE);
+        onloadRender();
     }
 }
