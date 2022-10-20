@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nested Ampersand Notation</title>
+    <title>Extended Ampersand Notation</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -15,17 +15,17 @@
     <div id="header"></div>
 
     <div id="content" class="content">
-        <h1>Nested Ampersand Notation</h1>
+        <h1>Extended Ampersand Notation</h1>
         <p>
-            <b>Nested Ampersand Notation</b> (X&N) is the second part of <a href="googology/ampersand-notation.html">Ampersand Notation</a>.
+            <b>Extended Ampersand Notation</b> (X&N) is the second part of <a href="googology/ampersand-notation.html">Ampersand Notation</a>.
         </p>
         </p>
         <h2>Definition</h2>
         <p>
-            Define an <b>ampersand-structure</b> as an expression of the form &<sub>X</sub>, where X is any sequence of ampersand-structures optionally followed by a non-negative integer. X may be empty.
+            Let @ and # represent sequences of ampersand-structures (defined recursively below).
         </p>
         <p>
-            Let @ represent any sequence of ampersand-structures.
+            Define an <b>ampersand-structure</b> as an expression of the form &<sub>@x</sub>, where x is a non-negative integer. x is optional and may be removed.
         </p>
         <p>
             A valid expression in X&N is of the form a[@b], where a and b are non-negative integers. b is optional and may be removed.
@@ -39,7 +39,8 @@
             <li>b > 0: a[@b]= a[@b - 1][@b - 1]...[@b - 1][@b - 1], with a copies of "[@b - 1]"</li>
             <li>a[@&] = a[@a]</li>
             <li>a[@&<sub>0</sub>]= a[@&]</li>
-            <li>x is a non-negative integer > 0: a[@&<sub>x</sub>]= a[@&<sub>x - 1</sub>&<sub>x - 1</sub>...&<sub>x - 1</sub>&<sub>x - 1</sub>] with a copies of "&<sub>x - 1</sub>"</sub></li>
+            <li>x > 0: a[@&<sub>#x</sub>]= a[@&<sub>#x - 1</sub>&<sub>#x - 1</sub>...&<sub>#x - 1</sub>&<sub>#x - 1</sub>] with a copies of "&<sub>#x - 1</sub>"</sub></li>
+            <li>a[@&<sub>#&</sub>]= a[@&<sub>#a</sub>]</li>
         </ol>
         <h2>Examples</h2>
         <p>
