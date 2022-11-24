@@ -20,6 +20,7 @@ function renderDensity() {
 // called every second
 function slowRender() {
     renderAchievements();
+    renderBlackHoles();
 }
 
 function renderAchievements() {
@@ -62,14 +63,22 @@ function renderBlackHoles() {
         const cost = upgradeBlackHoleCost(idx);
         const upgradeBlackHoleHTML = '<button onclick="upgradeBlackHole(' + idx + ", " + cost + ');">Upgrade (Cost: ' + disp(cost) + ')</button>';
         var potencyPart;
-        
+
         if(idx == 0) {
-            potencyPart = `x${disp(potency)}/s potency increase for all compressors${bigSpace}`;
+            potencyPart = `Multiplies density by x${disp(potency)} every second ${bigSpace}`;
         } else {
-            potencyPart = `x${disp(potency)}/s potency increase for Level ${idx} Black Holes ${bigSpace}`;
+            potencyPart = `Multiplies potency of Level ${idx} by x${disp(potency)} every second ${bigspace}`;
         }
 
-        return `<tr><td>Level ${idx + 1} Black Hole${bigSpace}</td><td>${potencyPart}${bigSpace}</td><td>${upgradeBlackHoleHTML}</td></tr>`;
+        var powerBoostBlackHoleHTML;
+        
+        if(!savefile.inBoostCooldown) {
+            powerBoostBlackHoleHTML = `<button id="powerBoost" onclick="blackHolePowerBoost(${idx});">Power Boost for 10 min</button>`;
+        } else {
+            powerBoostBlackHoleHTML = `<span style="color:#aaa;">Please wait for the cooldown to finish before power boosting</span>`;
+        }
+
+        return `<tr><td>Level ${idx + 1} Black Hole${bigSpace}</td><td>${potencyPart}${bigSpace}</td><td>${upgradeBlackHoleHTML}</td><td>${powerBoostBlackHoleHTML}</td></tr>`;
     }).join("");
 }
 
@@ -87,7 +96,7 @@ function renderUnlock() {
     } else if(!savefile.achievements["Unlock Level 1 Black Holes"]) {
         document.querySelector("#unlock").innerHTML = "Unlock Level 1 Black Holes at 1e10 kg/m<sup>3</sup>!";
     } else if(!savefile.achievements["Unlock Level 2 Black Holes"]) {
-        document.querySelector("#unlock").innerHTML = "Unlock Level 2 Black Holes at 1e100 kg/m<sup>3</sup>!";
+        document.querySelector("#unlock").innerHTML = "Unlock Level 2 Black Holes at e1e100 kg/m<sup>3</sup>!";
     } else {
         document.querySelector("#unlock").innerHTML = "";
     }

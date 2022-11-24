@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="../">
+    </base>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Ampersand Notation</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <div id="content" class="content">
+        <h1>Basic Ampersand Notation</h1>
+        <p>
+            <b>Basic Ampersand Notation</b> (B&N) is the first part of <a href="my-googology/ampersand-notation.html">Ampersand Notation</a>.
+        </p>
+        </p>
+        <h2>Definition</h2>
+        <p>
+            Let @ represent any sequence of ampersand symbols (&).
+        </p>
+        <p>
+            A valid expression in B&N is of the form a[@b], where a and b are non-negative integers. b is optional and may be removed.
+            
+            B&N outputs a non-negative integer for every valid expression,
+            determined using this set of rules:
+        </p>
+        <ol>
+            <li>a[] = a<sup>a</sup></li>
+            <li>a[@0]= a[@]</li>
+            <li>b > 0: a[@b]= a[@b - 1][@b - 1]...[@b - 1][@b - 1], with a copies of "[@b - 1]"</li>
+            <li>a[@&]= a[@a]</li>
+        </ol>
+        <h2>Examples</h2>
+        <p>
+        2[1]
+        <br />= 2[0][0]
+        <br />= 2[][]
+        <br />= 2[]<sup>2[]</sup>
+        <br />= (2<sup>2</sup>)<sup>(2<sup>2</sup>)</sup>
+        <br />= 4<sup>4</sup>
+        <br />= 256
+        </p>
+        <p>
+        2[&1]
+        <br />= 2[&0][&0]
+        <br />= 2[&][&]
+        <br />= 2[2][&]
+        <br />= 2[1][1][&]
+        <br />= 2[0][0][1][&]
+        <br />= 2[][][1][&]
+        <br />= ...
+        <h2>Comparison</h2>
+        <p>Below is a comparison of expressions in this notation with the <a href="https://googology.fandom.com/wiki/Fast-growing_hierarchy">fast-growing hierarchy</a>, using the Wainer hierarchy for fundamental sequences.</p>
+        <p>Here, a is a non-negative integer. All inequalities presented only hold true for sufficiently large a, rather than any a. </p>
+        <ul>
+            <li>a[] &ge; f<sub>2</sub>(a)</li>
+            <li>a[1] &ge; f<sub>3</sub>(a)</li>
+            <li>a[2] &ge; f<sub>4</sub>(a)</li>
+            <li>a[3] &ge; f<sub>5</sub>(a)</li> 
+            <li>a[4] &ge; f<sub>6</sub>(a)</li>
+            <li>a[&] &ge; f<sub>&omega;</sub>(a)</li>
+            <li>a[&1] &ge; f<sub>&omega;+1</sub>(a)</li>
+            <li>a[&2] &ge; f<sub>&omega;+2</sub>(a)</li>
+            <li>a[&3] &ge; f<sub>&omega;+3</sub>(a)</li>
+            <li>a[&&] &ge; f<sub>&omega;&times;2</sub>(a)</li>
+            <li>a[&&1] &ge; f<sub>&omega;&times;2+1</sub>(a)</li>
+            <li>a[&&&] &ge; f<sub>&omega;&times;3</sub>(a)</li>    
+            <li>a[&&&&] &ge; f<sub>&omega;&times;4</sub>(a)</li>    
+        </ul>
+    </p>
+    </div>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/load-header.js"></script>
+</body>
+
+</html>

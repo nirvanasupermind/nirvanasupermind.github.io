@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="../">
+    </base>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dozenal scientific calculator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div id="content" class="content">
+        <h1>Dozenal scientific calculator</h1>
+        <p>A full, shell-style scientific calculator using the dozenal numeral system. A and B (both cases allowed) represent 10 and 11. </p>
+        <div id="calc">
+            <button id="clearresults" onclick="clearResults();">Clear results</button>
+            <br />
+            <br />
+            <div id="resultbox" style="width:800px; height: 400px; border: solid dimgrey 1px; overflow-y: scroll;">
+                <ul id="results"></ul>
+            </div>
+            <br />
+            <input id="exp" style="width: 400px;" placeholder="Enter an expression"></input>            
+            <button id="calculate" onclick="calculate();">Calculate</button>
+        </div>
+        <h2>Supported functions</h2>
+        <ul>
+            <li>x + y - addition</li>
+            <li>x - y - subtraction</li>
+            <li>x * y - multiplication</li>
+            <li>x / y - division</li>
+            <li>x % y - modulo/remainder</li>
+            <li>x ^ y - exponential</li>
+            <li>pi() - pi constant</li>       
+            <li>e() - e constant</li>     
+            <li>sin(x) - sine</li>
+            <li>cos(x) - cosine</li>
+            <li>tan(x) - tangent</li>
+            <li>asin(x) - inverse sine</li>
+            <li>acos(x) - inverse cosine</li>
+            <li>atan(x) - inverse tangent</li>
+            <li>sinh(x) - hyperbolic sine</li>
+            <li>cosh(x) - hyperbolic cosine</li>
+            <li>tanh(x) - hyperbolic tangent</li>
+            <li>asinh(x) - inverse hyperbolic sine</li>
+            <li>acosh(x) - inverse hyperbolic cosine</li>
+            <li>atanh(x) - inverse hyperbolic tangent</li>
+            <li>log(x) - base-e logarithm</li> 
+            <li>logz(x) - base-12 logarithm</li> 
+            <li>exp(x) - base-e exponential</li> 
+            <li>expz(x) - base-12 exponential</li> 
+            <li>sqrt(x) - square root</li>              
+            <li>gamma(x) - gamma function (Lanczos approximation)</li>              
+        </ul>
+    </div>
+    
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/load-header.js"></script>
+    <script src="js/parsimmon.umd.min.js"></script>
+    <script src="js/dozenal-scientific-calculator.js"></script>
+
+</body>
+</html>

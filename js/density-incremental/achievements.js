@@ -46,7 +46,7 @@ function testAchievements() {
         document.querySelector("#black-holes-collapsible").style.visibility = "visible";
     }
 
-    if(savefile.density.gt(1e100) && !savefile.achievements["Unlock Level 2 Black Holes"]) {
+    if(savefile.density.gt(OmegaNum("e1e100")) && !savefile.achievements["Unlock Level 2 Black Holes"]) {
         savefile.achievements["Unlock Level 2 Black Holes"] = true;
         savefile.blackHoles.push(OmegaNum.ONE);
         onloadRender();

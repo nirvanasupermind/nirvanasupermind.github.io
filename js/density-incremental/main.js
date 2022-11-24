@@ -2,6 +2,7 @@ const msPerTick = 40;
 
 const bigSpace = new Array(10).join("&nbsp;");
 
+
 var savefile;
 
 function getDefaultSavefile() {
@@ -11,6 +12,10 @@ function getDefaultSavefile() {
         compressors: [],
         blackHoles: [],
         achievements: {},
+        // inBoostCooldown: false,
+        // shortBoostTime: false,
+        powerBoostTimer: null,
+        cooldownTimer: null,
         lastOnline: Date.now()
     };
 }
@@ -26,7 +31,7 @@ function importSave() {
 function exportSave() {
     save();
 
-    const blob = new Blob([localStorage.getItem("savefileJSON")], { "type": "application/json"});
+    const blob = new Blob([localStorage.getItem("savefileJSON")], { "type": "application/json" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -43,10 +48,14 @@ function hardReset() {
     }
 }
 
-function unlockBlackHoles() {
+function immediateyUnlockLvl1BH() {
     savefile.density = OmegaNum(1e10);
     // savefile.blackHoles.push(OmegaNum(1));
     // upgradeBlackHole(0, OmegaNum(1e10));
+}
+
+function immediateyUnlockLvl2BH() {
+    savefile.density = OmegaNum("e1e100");
 }
 
 function load() {
@@ -67,21 +76,21 @@ function load() {
 }
 
 function recordOfflineProgress() {
-        var ticksPassed = (Date.now() - savefile.lastOnline) / msPerTick;
+    var ticksPassed = (Date.now() - savefile.lastOnline) / msPerTick;
 
-    if(savefile.blackHoles.length) {
-        for(var i = 0; i < savefile.compressors.length; i++) {
+    if (savefile.blackHoles.length) {
+        for (var i = 0; i < savefile.compressors.length; i++) {
             savefile.compressors[i] = savefile.compressors[i].mul(savefile.blackHoles[0].pow(0.1 * ticksPassed));
         }
 
-        for(var i = 0; i < savefile.blackHoles.length - 1; i++) {
+        for (var i = 0; i < savefile.blackHoles.length - 1; i++) {
             savefile.blackHoles[i] = savefile.blackHoles[i].mul(savefile.blackHoles[i + 1].pow(0.1 * ticksPassed));
         }
     }
 
     savefile.densityRate = savefile.compressors.reduce(OmegaNum.mul, OmegaNum.ONE);
 
-    savefile.density = savefile.density.add(savefile.densityRate.mul(0.1 * ticksPassed)); 
+    savefile.density = savefile.density.add(savefile.densityRate.mul(0.1 * ticksPassed));
 }
 
 function main() {
@@ -89,7 +98,7 @@ function main() {
 
     recordOfflineProgress();
 
-    onloadRender();  
+    onloadRender();
 
     setInterval(() => {
         savefile.densityRate = savefile.compressors.reduce(OmegaNum.mul, OmegaNum.ONE);
@@ -99,19 +108,17 @@ function main() {
     }, msPerTick);
 
     setInterval(() => {
-        if(savefile.blackHoles.length) {
-            savefile.compressors.forEach((_, idx) => {
-                savefile.compressors[idx] = savefile.compressors[idx].mul(savefile.blackHoles[0]);
-                renderCompressors();
-            });
+        if (savefile.blackHoles.length) {
+            savefile.density = savefile.density.mul(savefile.blackHoles[0]);
 
-            for(var i = 0; i < savefile.blackHoles.length - 1; i++) {
+            for (var i = 0; i < savefile.blackHoles.length - 1; i++) {
                 savefile.blackHoles[i] = savefile.blackHoles[i].mul(savefile.blackHoles[i + 1]);
-                renderBlackHoles();
             }
         }
 
         slowRender();
+
+        setTimerInterval();
     }, 1000);
 }
 

@@ -1,15 +1,25 @@
 body {
-    font-family: Tahoma, sans-serif;
-    background-color: #111115;
+    font-family: Palatino, serif;
+    background-color: #000;
     color: white;
 }
 
-button, input {
-    font-family: Tahoma, sans-serif;
+
+button,
+input {
+    font-family: Palatino, serif;
 }
 
+
 div.nav {
-    text-align: right;
+    text-align: center;
+    position: fixed;
+    /* Set the navbar to fixed position */
+    top: 0;
+    /* Position the navbar at the top of the page */
+    width: 100%;
+    background-color: #18181c;
+    font-size: 80%;
 }
 
 div.content {
@@ -27,7 +37,21 @@ a {
 }
 
 a:hover {
-    color:orange;
+    color: orange;
     text-decoration: none;
     transition: 0.2s;
+}
+
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#homepage-bg {
+    filter: brightness(50%);
+    background-image: url('resources/homepage-bg.jpg');
+    height: 500px;
 }
