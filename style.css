@@ -5,11 +5,9 @@ body {
 }
 
 
-button,
-input {
-    font-family: Palatino, serif;
+button, input {
+    font-family: Helvetica, sans-serif;
 }
-
 
 div.nav {
     text-align: center;
