@@ -9,17 +9,6 @@ button, input {
     font-family: Helvetica, sans-serif;
 }
 
-div.nav {
-    text-align: center;
-    position: fixed;
-    /* Set the navbar to fixed position */
-    top: 0;
-    /* Position the navbar at the top of the page */
-    width: 100%;
-    background-color: #18181c;
-    font-size: 80%;
-}
-
 div.content {
     text-align: left;
 }
@@ -46,10 +35,4 @@ a:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-#homepage-bg {
-    filter: brightness(50%);
-    background-image: url('resources/homepage-bg.jpg');
-    height: 500px;
 }
