@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="../">
+    </base>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Googology</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <div id="content" class="content">
+        <h1>Zillion Notation</h1>
+        <p>
+            Zillion Notation (ZN) is a BEAF-like notation useful for coining zillions similar to the ones of Jonathan
+            Bowers.
+        </p>
+        </p>
+        <h2>Definition</h2>
+        <p>
+            Let @ represent any sequence of non-negative integers separated by commas.
+
+            A valid expression in ZN is of the form z(@). ZN outputs a non-negative integer for every valid expression,
+            determined using this set of rules:
+        </p>
+        <ol>
+            <li>z() = 0</li>
+            <li>z(a) = 1000 * a</li>
+            <li>z(@, 0) = z(@)</li>
+            <li>b > 0: z(a, b, @) = z(1000^a, (b-1), @)</li>
+        </ol>
+        <p>
+            If none of these rules apply, start the process shown below, starting from the second entry:
+        </p>
+        <ul>
+            <li>If the entry is 0, then jump to the next entry.</li>
+            <li>If the entry is not 0, then:
+                <ul>
+                    <li>Let n equal to this entry, and a equal to the first entry of the input.</li>
+                    <li>Decrease n by 1.</li>
+                    <li>Change the entry before n to a.</li>
+                    <li>Terminate the process.</li>
+                </ul>
+            </li>
+        </ul>
+        <h2>Examples</h2>
+        <p>z(5, 2)<br>= z(1000^5, 1)<br>= z(10^15, 1)<br>= z(1000^(10^15), 0)<br>= z(10^(3*10^15), 0)<br>= 10^(3*10^15 +
+            3)<br><br>z(5, 0, 0, 1)<br>= z(5, 0, 5, 0)<br>= z(5, 0, 5)<br>= z(5, 5, 4)<br>= z(1000^5, 4, 4)<br>...</p>
+    </div>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/load-header.js"></script>
+</body>
+
+</html>
