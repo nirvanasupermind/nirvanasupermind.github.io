@@ -105,7 +105,7 @@ function updateAchievements() {
         savefile.achievements.unlockHeaters = true;
     }
 
-    if (!savefile.achievements.unlockNuclearReactors && savefile.temperature >= 10000) {
+    if (!savefile.achievements.unlockNuclearReactors && savefile.temperature >= 1000) {
         savefile.achievements.unlockNuclearReactors = true;
         savefile.nuclearReactorRate = 0.5;
         $("#nuclear-reactor").css("display", "block");
