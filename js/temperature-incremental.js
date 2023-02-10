@@ -123,8 +123,8 @@ function hardReset() {
 }
 
 function instantlyUnlockNuclearReactors() {
-    savefile.temperature = 10000;
-    savefile.heaterRate = 9;
+    savefile.temperature = 1000;
+    savefile.heaterRate = 5.5;
     location.reload();
 }
 
