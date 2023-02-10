@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Incremental</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <div id="content" class="content">
+        <h1>Temperature Incremental</h1>
+        <p><strong>Temperature</strong>: <span id="temperature"></span></p>
+        <br />
+        <button id="automation-button" onclick="showAutomation();">Automation</button>
+        <button id="achievements-button" onclick="showAchievements();">Achievements</button>
+        <button id="settings-button" onclick="showSettings();">Settings</button>
+        <div id="automation-content" style="display: block;">
+            <div id="heater" style="display: block;">
+                <p>Your heater has a rate of <span id="heater-rate"></span> K/s</p>
+                <button onclick="heaterUpgrade();">Upgrade heater (cost: <span id="heater-upgrade-temp"></span> K)</button>
+            </div>
+            <div id="nuclear-reactor" style="display: none;">
+                <p>Your nuclear reactor has a rate of <span id="nuclear-reactor-rate"></span> K/s<sup>2</sup></p>
+            </div>
+        </div>
+        <div id="achievements-content" style="display: none;">
+            <p><strong>Unlock heaters</strong> (req: 10.00 K): <span id="achievement-unlock-heaters"></span></p>
+            <p><strong>Unlock nuclear reactors</strong> (req: 10000.00 K): <span id="achievement-unlock-nuclear-reactors"></span></p>            
+        </div>
+        <div id="settings-content" style="display: none;">
+            <br />
+            <button id="export-savefile" onclick="exportSavefile();">Export savefile</button>
+            <button id="hard-reset" onclick="hardReset();">Hard reset</button>
+            <p><strong>Settings for testing</strong></p>
+            <button id="instantly-unlock-nuclear-reactors" onclick="instantlyUnlockNuclearReactors();">Instantly unlock nuclear reactors</button>            
+        </div>
+    </div>
+    <script src="../js/jquery-3.6.3.min.js"></script>
+    <script src="../js/temperature-incremental.js"></script>
+</body>
+
+</html>

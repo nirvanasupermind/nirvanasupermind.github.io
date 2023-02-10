@@ -1,12 +1,12 @@
 body {
-    font-family: Helvetica, sans-serif;
-    background-color: #000;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #1a1a1a;
     color: white;
 }
 
 
 button, input {
-    font-family: Helvetica, sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
 }
 
 div.content {
