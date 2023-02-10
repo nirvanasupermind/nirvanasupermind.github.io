@@ -3,7 +3,7 @@ var precision = 2;
 var defaultSavefile = {
     temperature: 0,
     heaterRate: 0.5,
-    atoms: 0,
+    hydrogen: 0,
     nuclearReactorRate: 0,
     lastPlayed: Date.now(),
     achievements: {
@@ -37,30 +37,62 @@ function doOfflineProgress() {
     renderTemperature();
 }
 
-function temperatureForHeaterUpgrade() {
+
+function heaterUpgradeCost() {
     return 10 * Math.pow(1.5, 2 * savefile.heaterRate - 1);
 }
 
-function heaterUpgrade() {
-    if (savefile.temperature >= temperatureForHeaterUpgrade()) {
-        savefile.temperature -= temperatureForHeaterUpgrade();
+function upgradeHeater() {
+    if (savefile.temperature >= heaterUpgradeCost()) {
+        savefile.temperature -= heaterUpgradeCost();
         savefile.heaterRate += 0.5;
         renderTemperature();
         renderHeater();
     }
 }
 
+function hydrogenSoftResetAmount() {
+    return savefile.temperature < 100 ? 0
+        : Math.log(savefile.temperature) - Math.log(100);
+}
+
+function hydrogenSoftReset() {
+    savefile.hydrogen += hydrogenSoftResetAmount();
+    renderHydrogen();
+    savefile.temperature = 0;
+    savefile.heaterRate = 0.5;
+}
+
+function nuclearReactorUpgradeCost() {
+    return 10 * Math.pow(2, 2 * savefile.nuclearReactorRate - 1);
+}
+
+function upgradeNuclearReactor() {
+    if (savefile.hydrogen >= nuclearReactorUpgradeCost()) {
+        savefile.hydrogen -= nuclearReactorUpgradeCost();
+        savefile.nuclearReactorRate += 0.5;
+        renderHydrogen();
+        renderNuclearReactor();
+    }
+}
+
 function renderTemperature() {
     $("#temperature").text(savefile.temperature.toFixed(precision) + " K");
+    $("#hydrogen-soft-reset-amount").text(hydrogenSoftResetAmount().toFixed(precision));
 }
 
 function renderHeater() {
     $("#heater-rate").text(savefile.heaterRate.toFixed(precision));
-    $("#heater-upgrade-temp").text(temperatureForHeaterUpgrade().toFixed(precision));
+    $("#heater-upgrade-temp").text(heaterUpgradeCost().toFixed(precision));
 }
 
 function renderNuclearReactor() {
     $("#nuclear-reactor-rate").text(savefile.nuclearReactorRate.toFixed(precision));
+    $("#nuclear-reactor-upgrade-cost").text(nuclearReactorUpgradeCost().toFixed(precision));
+}
+
+function renderHydrogen() {
+    $("#hydrogen").text(savefile.hydrogen.toFixed(precision));
 }
 
 function renderAchievements() {
@@ -69,11 +101,11 @@ function renderAchievements() {
 }
 
 function updateAchievements() {
-    if(!savefile.achievements.unlockHeaters && savefile.heaterRate) {
+    if (!savefile.achievements.unlockHeaters && savefile.heaterRate) {
         savefile.achievements.unlockHeaters = true;
     }
 
-    if(!savefile.achievements.unlockNuclearReactors && savefile.temperature >= 10000) {
+    if (!savefile.achievements.unlockNuclearReactors && savefile.temperature >= 10000) {
         savefile.achievements.unlockNuclearReactors = true;
         savefile.nuclearReactorRate = 0.5;
         $("#nuclear-reactor").css("display", "block");
@@ -82,7 +114,6 @@ function updateAchievements() {
 
     renderAchievements();
 }
-
 
 function hardReset() {
     if (confirm("Do you want to perform a hard reset?")) {
@@ -122,13 +153,18 @@ window.onload = function () {
     showAutomation();
     renderTemperature();
     renderHeater();
-    renderNuclearReactor();
     updateAchievements();
-    
+    renderHydrogen();
+
+    if (savefile.achievements.unlockNuclearReactors) {
+        $("#nuclear-reactor").css("display", "block");
+        renderNuclearReactor();
+    }
+
     setInterval(function () {
         savefile.temperature += savefile.heaterRate * 0.1;
         renderTemperature();
-        if (savefile.nuclearReactorRate) {
+        if (savefile.achievements.unlockNuclearReactors) {
             savefile.heaterRate += savefile.nuclearReactorRate * 0.1;
             renderHeater();
         }

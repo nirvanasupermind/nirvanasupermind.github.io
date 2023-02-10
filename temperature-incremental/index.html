@@ -20,10 +20,13 @@
         <div id="automation-content" style="display: block;">
             <div id="heater" style="display: block;">
                 <p>Your heater has a rate of <span id="heater-rate"></span> K/s</p>
-                <button onclick="heaterUpgrade();">Upgrade heater (cost: <span id="heater-upgrade-temp"></span> K)</button>
+                <button onclick="upgradeHeater();">Upgrade heater (cost: <span id="heater-upgrade-temp"></span> K)</button>
             </div>
             <div id="nuclear-reactor" style="display: none;">
+                <p>You have <span id="hydrogen"></span> hydrogen</p>
+                <button onclick="hydrogenSoftReset();">Soft reset for <span id="hydrogen-soft-reset-amount"></span> hydrogen</button>
                 <p>Your nuclear reactor has a rate of <span id="nuclear-reactor-rate"></span> K/s<sup>2</sup></p>
+                <button onclick="upgradeNuclearReactor();">Upgrade nuclear reactor (cost: <span id="nuclear-reactor-upgrade-cost"></span> hydrogen)</button>
             </div>
         </div>
         <div id="achievements-content" style="display: none;">
