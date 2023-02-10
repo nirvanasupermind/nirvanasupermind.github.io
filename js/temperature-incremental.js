@@ -64,7 +64,7 @@ function hydrogenSoftReset() {
 }
 
 function nuclearReactorUpgradeCost() {
-    return 10 * Math.pow(2, 2 * savefile.nuclearReactorRate - 1);
+    return 5 * Math.pow(2, 2 * savefile.nuclearReactorRate - 1);
 }
 
 function upgradeNuclearReactor() {
