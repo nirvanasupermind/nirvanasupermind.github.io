@@ -128,6 +128,19 @@ function instantlyUnlockNuclearReactors() {
     location.reload();
 }
 
+
+document.getElementById("import-savefile")
+    .addEventListener("change", function () {
+
+        var fr = new FileReader();
+        fr.onload = function () {
+            savefile = JSON.parse(fr.result);
+            location.reload();
+        }
+
+        fr.readAsText(this.files[0]);
+    });
+
 function exportSavefile() {
     var filename = "temperature-incremental-savefile.json";
     var text = JSON.stringify(savefile);
