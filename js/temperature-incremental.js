@@ -57,8 +57,7 @@ function upgradeHeater() {
 }
 
 function hydrogenSoftResetAmount() {
-    return savefile.temperature < 100 ? 0
-        : Math.log(savefile.temperature) - Math.log(100);
+    return Math.max(0, Math.log(savefile.temperature * 0.001));
 }
 
 function hydrogenSoftReset() {
