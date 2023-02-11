@@ -33,8 +33,13 @@ function showSettings() {
 }
 
 function doOfflineProgress() {
-    savefile.temperature = savefile.temperature + (Date.now() - savefile.lastPlayed);
+    savefile.temperature = savefile.temperature + savefile.heaterRate * (Date.now() - savefile.lastPlayed);
     renderTemperature();
+    if (savefile.achievements.unlockNuclearReactors) {
+        savefile.heaterRate += savefile.nuclearReactorRate * (Date.now() - savefile.lastPlayed);
+        renderHeater();
+    }
+    
 }
 
 
@@ -163,6 +168,7 @@ window.onload = function () {
         ? JSON.parse(localStorage.savefile)
         : JSON.parse(JSON.stringify(defaultSavefile));
 
+    doOfflineProgress();
     showAutomation();
     renderTemperature();
     renderHeater();
