@@ -33,11 +33,11 @@ function showSettings() {
 }
 
 function doOfflineProgress() {
-    savefile.temperature = savefile.temperature + savefile.heaterRate * (Date.now() - savefile.lastPlayed);
-    renderTemperature();
+    savefile.temperature = savefile.temperature + savefile.heaterRate * ((Date.now() - savefile.lastPlayed) * 0.001);
+    // renderTemperature();
     if (savefile.achievements.unlockNuclearReactors) {
-        savefile.heaterRate += savefile.nuclearReactorRate * (Date.now() - savefile.lastPlayed);
-        renderHeater();
+        savefile.heaterRate += savefile.nuclearReactorRate * ((Date.now() - savefile.lastPlayed) * 0.001);
+        // renderHeater();
     }
     
 }
