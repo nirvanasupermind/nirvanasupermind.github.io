@@ -37,6 +37,6 @@ a:hover {
     transform: translate(-50%, -50%);
 }
 
-ol {
-    line-height: 40px;
+ol.tlnl {
+    line-height: 30px;
 }
