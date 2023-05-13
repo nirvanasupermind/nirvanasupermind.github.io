@@ -115,6 +115,17 @@ function getSDNName(base) {
             result += rootsSDN[Number(digit)];
         }
     }
+    if(result[result.length - 1] === "d") {
+        result += "r";
+    }
+    
+    if(result[result.length - 1] === "i") {
+        result += "mal";
+    } else {
+        result += "imal";
+    }
+
+    return result;
 }
 
 function analyze() {
