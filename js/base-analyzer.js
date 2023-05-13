@@ -118,12 +118,15 @@ function getSDNName(base) {
     if(result[result.length - 1] === "d") {
         result += "r";
     }
+    else if(result[result.length - 1] === "i") {
+        result += "n";
+    }   
+    else if(result[result.length - 1] === "n") {
+        result += "i";
+    } 
     
-    if(result[result.length - 1] === "i") {
-        result += "mal";
-    } else {
-        result += "imal";
-    }
+    
+    result += "a";
 
     return result;
 }
