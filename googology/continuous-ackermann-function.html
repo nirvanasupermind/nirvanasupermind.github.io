@@ -21,11 +21,17 @@
         </p>
         <h2>Definition</h2>
         <p>For non-negative real numbers x and y:</p>
-        <li>
-            <ul>A(x, y) = x + y + 1 if x &lt; 1</ul>
-            <ul>A(x, y) = A(x - 1, A(x - 1, 1) &times; y - y + 1) if y &lt; 1</ul>
-            <ul>A(x, y) = A(x - 1, A(x, y - 1)) otherwise</ul>
-        </li>
+        <ol>
+            <li>x &lt; 1: A(x, y) = x + y + 1</li>
+            <li>y &lt; 1: A(x, y) = A(x - 1, A(x - 1, 1) &times; y - y + 1)</li>
+            <li>x &ge; 1, y &ge; 1: A(x, y) = A(x - 1, A(x, y - 1))</li>
+        </ol>
+        <h2>Examples</h2>
+        <p>A(0.5, y) = y + 1.5</p>
+        <p>A(1.5, y) = 1.5y + 2.5</p>
+        <p>A(2.5, y) &le; 9 &times; 1.5<sup>y</sup></p>
+        <p>A(e, &pi;) &approxeq; 42.16412690081622</p>
+        <p>A(&pi;, e) &approxeq; 3446961975442.875</p>
         </p>
     </div>
 
