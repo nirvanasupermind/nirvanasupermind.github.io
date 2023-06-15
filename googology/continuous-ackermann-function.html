@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    </base>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continous Ackermann function</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <div id="menu"></div>
+
+    <div id="content" class="content">
+        <h1>Continous Ackermann function</h1>
+        <p>
+            This is an extension of the Ackermann function to non-integer inputs.
+        </p>
+        </p>
+        <h2>Definition</h2>
+        <p>For non-negative real numbers x and y:</p>
+        <li>
+            <ul>A(x, y) = x + y + 1 if x &lt; 1</ul>
+            <ul>A(x, y) = A(x - 1, A(x - 1, 1) &times; y - y + 1) if y &lt; 1</ul>
+            <ul>A(x, y) = A(x - 1, A(x, y - 1)) otherwise</ul>
+        </li>
+        </p>
+    </div>
+
+    <script src="../js/jquery-3.6.3.min.js"></script>
+    <script>
+        $("#menu").load("menu.html");
+    </script>
+</body>
+
+</html>
