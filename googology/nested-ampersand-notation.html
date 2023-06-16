@@ -21,12 +21,13 @@
         </p>
         </p>
         <h2>Definition</h2>
+        <p></p>
         <p>
-            Define an <b>ampersand-structure</b> as an expression of the form &<sub>@x</sub>, where @ is any sequence of other ampersand-structures, and x is a non-negative
+            Define an <b>ampersand-structure</b> as an expression of the form &<sub>@x</sub>, where @ is any sequence of ampersand-structures, and x is a non-negative
             integer. x is optional and may be removed.
         </p>
         <p>
-            A valid expression in N&N is of the form a[@b], where @ is any sequence of ampersand-structures, and a and b are non-negative integers. b is optional and
+            A valid expression in N&N is of the form a[@b], where @ is any sequence of ampersand structures, and a and b are non-negative integers. b is optional and
             may be removed.
 
             N&N outputs a non-negative integer for every valid expression,
@@ -36,34 +37,21 @@
             <li>a[] = a<sup>a</sup></li>
             <li>a[@0]= a[@]</li>
             <li>b > 0: a[@b]= a[@b - 1][@b - 1]...[@b - 1][@b - 1], with a copies of "[@b - 1]"</li>
-            <li>a[@&] = a[@a]</li>
-            <li>a[@&<sub>&<sub>&<sub>...<sub>0</sub></sub></sub></sub>] with n copies of "&" = a[@&<sub>&<sub>&<sub>...</sub></sub></sub>] with n copies of "&"</li>
-
-            <li>x > 0: a[@&<sub>x</sub>]= a[@&<sub>x - 1</sub>&<sub>x - 1</sub>...&<sub>x - 1</sub>&<sub>x - 1</sub>]
-                with a copies of "&<sub>x - 1</sub>"</sub></li>
-
+            <li># is another ampersand-structure sequence: a[@&<sub>&<sub>...<sub>#0</sub></sub></sub>] with x layers in the ampersand-structure after @ = a[@&<sub>&<sub>...<sub>#</sub></sub></sub>] with x layers in the ampersand-structure after @</li>
+            <li># is another ampersand-structure sequence, x > 0: a[@&<sub>&<sub>...<sub>#&</sub></sub></sub>] with x layers in the ampersand-structure after @ = a[@&<sub>&<sub>...<sub>#a</sub></sub></sub>] with x layers in the ampersand-structure after @</li>
+            <li># is another ampersand structure sequence, x > 0, y > 0: a[@&<sub>&<sub>...<sub>#x</sub></sub></sub>] with y layers in the ampersand-structure after @  = a[@&<sub>&<sub>...<sub>&<sub>#x - 1</sub>&<sub>#x - 1</sub>...&<sub>#x - 1</sub>&<sub>#x - 1</sub></sub></sub></sub>]
+                with y + 1 layers in the ampersand-structure after @ and a copies of "&<sub>#x - 1</sub>"</sub></li>
         </ol>
         <h2>Examples</h2>
         <p>
-            2[&<sub>1</sub>0]
-            <br />= 2[&<sub>1</sub>]
-            <br />= 2[&<sub>0</sub>&<sub>0</sub>]
-            <br />= 2[&&]
-            <br />= 2[&2]
-            <br />= 2[&1][&1]
-            <br />= 2[&0][&0][&1]
-            <br />= 2[&][&][&1]
-            <br />= ...
-        </p>
-        <p>
-            2[&<sub>2</sub>&1]
-            <br />= 2[&<sub>2</sub>&0][&<sub>2</sub>&0]
-            <br />= 2[&<sub>2</sub>&][&<sub>2</sub>&]
-            <br />= 2[&<sub>2</sub>2][&<sub>2</sub>&]
-            <br />= 2[&<sub>2</sub>1][&<sub>2</sub>1][&<sub>2</sub>&]
-            <br />= 2[&<sub>2</sub>0][&<sub>2</sub>0][&<sub>2</sub>1][&<sub>2</sub>&]
-            <br />= 2[&<sub>2</sub>][&<sub>2</sub>][&<sub>2</sub>1][&<sub>2</sub>&]
-            <br />= 2[&<sub>1</sub>&<sub>1</sub>][&<sub>2</sub>][&<sub>2</sub>1][&<sub>2</sub>&]
+            2[&<sub>&</sub>1]
+            <br />= 2[&<sub>&</sub>][&<sub>&</sub>]
+            <br />= 2[&<sub>2</sub>][&<sub>&</sub>]
+            <br />= 2[&<sub>1</sub>]\&<sub>1</sub>][&<sub>&</sub>]            
+            <br />= 2[&<sub>0</sub>][&<sub>0</sub>][&<sub>1</sub>][&<sub>&</sub>]            
+            <br />= 2[&][&][&<sub>1</sub>][&<sub>&</sub>]            
+            <br />= 2[2][&][&<sub>1</sub>][&<sub>&</sub>]
+            <br />= 2[1][1][&][&<sub>1</sub>][&<sub>&</sub>]
             <br />= ...
         </p>
         <h2>Comparison</h2>
@@ -73,14 +61,15 @@
         <p>Here, a is a non-negative integer. All inequalities presented only hold true for sufficiently large a, rather
             than any a. </p>
         <ul>
-            <li>a[&<sub>1</sub>] &ge; f<sub>&omega;<sup>2</sup></sub>(a)</li>
-            <li>a[&<sub>1</sub>1] &ge; f<sub>&omega;<sup>2</sup>+1</sub>(a)</li>
-            <li>a[&<sub>1</sub>&] &ge; f<sub>&omega;<sup>2</sup>+&omega;</sub>(a)</li>
-            <li>a[&<sub>1</sub>&<sub>1</sub>] &ge; f<sub>&omega;<sup>2</sup>&times;2</sub>(a)</li>
-            <li>a[&<sub>2</sub>] &ge; f<sub>&omega;<sup>3</sup></sub>(a)</li>
-            <li>a[&<sub>2</sub>&<sub>2</sub>] &ge; f<sub>&omega;<sup>3</sup>&times;2</sub>(a)</li>
-            <li>a[&<sub>3</sub>] &ge; f<sub>&omega;<sup>4</sup></sub>(a)</li>
-            <li>a[&<sub>4</sub>] &ge; f<sub>&omega;<sup>5</sup></sub>(a)</li>
+            <li>a[&<sub>&</sub>] &ge; f<sub>&omega;<sup>&omega;</sup></sub>(a)</li>
+            <li>a[&<sub>&</sub>1] &ge; f<sub>&omega;<sup>&omega;</sup>+1</sub>(a)</li>
+            <li>a[&<sub>&</sub>&] &ge; f<sub>&omega;<sup>&omega;</sup>+&omega;</sub>(a)</li>
+            <li>a[&<sub>&1</sub>] &ge; f<sub>&omega;<sup>&omega;+1</sup></sub>(a)</li>
+            <li>a[&<sub>&&</sub>] &ge; f<sub>&omega;<sup>2&omega;</sup></sub>(a)</li>
+            <li>a[&<sub>&&&</sub>] &ge; f<sub>&omega;<sup>3&omega;</sup></sub>(a)</li>
+            <li>a[&<sub>&<sub>1</sub></sub></sub>] &ge; f<sub>&omega;<sup>&omega;<sup>2</sup></sup></sub>(a)</li>
+            <li>a[&<sub>&<sub>&</sub></sub></sub>] &ge; f<sub>&omega;<sup>&omega;<sup>&omega;</sup></sup></sub>(a)</li>
+            <li>a[&<sub>&<sub>&<sub>&</sub></sub></sub></sub>] &ge; f<sub>&omega;<sup>&omega;<sup>&omega;<sup>&omega;</sup></sup></sup></sub>(a)</li>
         </ul>
         </p>
     </div>
