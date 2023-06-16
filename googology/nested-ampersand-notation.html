@@ -26,6 +26,7 @@
             Define an <b>ampersand-structure</b> as an expression of the form &<sub>@x</sub>, where @ is any sequence of ampersand-structures, and x is a non-negative
             integer. x is optional and may be removed.
         </p>
+        <p>The number of layers in an ampersand-structure is the number of nested subscripts, e.g. & has 0 layerss, &<sub>5</sub> has 1 layer, and &<sub>&<sub>7</sub>2</sub></sub> has 3 layers. </sub></p>
         <p>
             A valid expression in N&N is of the form a[@b], where @ is any sequence of ampersand structures, and a and b are non-negative integers. b is optional and
             may be removed.
@@ -38,9 +39,9 @@
             <li>a[@0]= a[@]</li>
             <li>b > 0: a[@b]= a[@b - 1][@b - 1]...[@b - 1][@b - 1], with a copies of "[@b - 1]"</li>
             <li># is another ampersand-structure sequence: a[@&<sub>&<sub>...<sub>#0</sub></sub></sub>] with x layers in the ampersand-structure after @ = a[@&<sub>&<sub>...<sub>#</sub></sub></sub>] with x layers in the ampersand-structure after @</li>
-            <li># is another ampersand-structure sequence, x > 0: a[@&<sub>&<sub>...<sub>#&</sub></sub></sub>] with x layers in the ampersand-structure after @ = a[@&<sub>&<sub>...<sub>#a</sub></sub></sub>] with x layers in the ampersand-structure after @</li>
-            <li># is another ampersand structure sequence, x > 0, y > 0: a[@&<sub>&<sub>...<sub>#x</sub></sub></sub>] with y layers in the ampersand-structure after @  = a[@&<sub>&<sub>...<sub>&<sub>#x - 1</sub>&<sub>#x - 1</sub>...&<sub>#x - 1</sub>&<sub>#x - 1</sub></sub></sub></sub>]
-                with y + 1 layers in the ampersand-structure after @ and a copies of "&<sub>#x - 1</sub>"</sub></li>
+            <li># is another ampersand-structure sequence: a[@&<sub>&<sub>...<sub>#&</sub></sub></sub>] with x layers in the ampersand-structure after @ = a[@&<sub>&<sub>...<sub>#a</sub></sub></sub>] with x layers in the ampersand-structure after @</li>
+            <li># is another ampersand structure sequence, y > 0: a[@&<sub>&<sub>...<sub>#x</sub></sub></sub>] with y layers in the ampersand-structure after @  = a[@&<sub>&<sub>...<sub>&<sub>#x - 1</sub>&<sub>#x - 1</sub>...&<sub>#x - 1</sub>&<sub>#x - 1</sub></sub></sub></sub>]
+                with y + 1 layers in the ampersand-structure after @ and a copies of "#x - 1"</sub></li>
         </ol>
         <h2>Examples</h2>
         <p>
@@ -69,7 +70,7 @@
             <li>a[&<sub>&&&</sub>] &ge; f<sub>&omega;<sup>3&omega;</sup></sub>(a)</li>
             <li>a[&<sub>&<sub>1</sub></sub></sub>] &ge; f<sub>&omega;<sup>&omega;<sup>2</sup></sup></sub>(a)</li>
             <li>a[&<sub>&<sub>&</sub></sub></sub>] &ge; f<sub>&omega;<sup>&omega;<sup>&omega;</sup></sup></sub>(a)</li>
-            <li>a[&<sub>&<sub>&<sub>&</sub></sub></sub></sub>] &ge; f<sub>&omega;<sup>&omega;<sup>&omega;<sup>&omega;</sup></sup></sup></sub>(a)</li>
+            <li>a[&<sub>&<sub>&<sub>&</sub></sub></sub></sub>] &ge; f<sub>&omega;<sup>&omega;<sup>&omega;<sup>&omega</sup></sup></sub>(a)</li>
         </ul>
         </p>
     </div>
