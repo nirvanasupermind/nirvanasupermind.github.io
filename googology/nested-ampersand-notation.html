@@ -38,7 +38,7 @@
             <li>a[] = a<sup>a</sup></li>
             <li>a[@0]= a[@]</li>
             <li>b > 0: a[@b]= a[@b - 1][@b - 1]...[@b - 1][@b - 1], with a copies of "[@b - 1]"</li>
-            <li># is another ampersand-structure sequence: a[@&<sub>&<sub>...<sub>&<sub>#0</sub></sub></sub></sub>] with x layers in the ampersand-structure after @ = a[@&<sub>&<sub>...<sub>&<sub>#</sub></sub></sub></sub>] with x layers in the ampersand-structure after @ (x - 1 if # is empty)</li>
+            <li># is another ampersand-structure sequence: a[@&<sub>&<sub>...<sub>&<sub>#0</sub></sub></sub></sub>] with x layers in the ampersand-structure after @ = a[@&<sub>&<sub>...<sub>&<sub>#</sub></sub></sub></sub>] with x layers in the ampersand-structure after @ (x - 1 if # is empty and x > 0)</li>
             <li># is another ampersand-structure sequence: a[@&<sub>&<sub>...<sub>&<sub>#&</sub></sub></sub></sub>] with x layers in the ampersand-structure after @ = a[@&<sub>&<sub>...<sub>&<sub>#a</sub></sub></sub></sub>] with x layers in the ampersand-structure after @</li>
             <li># is another ampersand structure sequence, y > 0: a[@&<sub>&<sub>...<sub>&<sub>#x</sub></sub></sub></sub>] with y layers in the ampersand-structure after @  = a[@&<sub>&<sub>...<sub>&<sub>#x - 1</sub>&<sub>#x - 1</sub>...&<sub>#x - 1</sub>&<sub>#x - 1</sub></sub></sub></sub>]
                 with y layers in the ampersand-structure after @ and a copies of "#x - 1"</sub></li>
@@ -47,7 +47,7 @@
         <p>
             2[&<sub>&</sub>1]
             <br />= 2[&<sub>&</sub>][&<sub>&</sub>]
-            <br />= 2[&<sub>2</sub>][&<sub>&</sub>]
+            <br />= 2[&<sub>2</sub>][&<sub>&<=/sub>]
             <br />= 2[&<sub>1</sub>]\&<sub>1</sub>][&<sub>&</sub>]            
             <br />= 2[&<sub>0</sub>][&<sub>0</sub>][&<sub>1</sub>][&<sub>&</sub>]            
             <br />= 2[&][&][&<sub>1</sub>][&<sub>&</sub>]            
