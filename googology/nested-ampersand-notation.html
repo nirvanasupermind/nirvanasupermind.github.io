@@ -26,7 +26,6 @@
             Define an <b>ampersand-structure</b> as an expression of the form &<sub>@x</sub>, where @ is any sequence of ampersand-structures, and x is a non-negative
             integer. x is optional and may be removed.
         </p>
-        <p>The number of layers in an ampersand-structure is the number of nested subscripts, e.g. & has 0 layers, &<sub>5</sub> has 1 layer, and &<sub>&<sub>7</sub></sub></sub> has 2 layers. </sub></p>
         <p>
             A valid expression in N&N is of the form a[@b], where @ is any sequence of ampersand structures, and a and b are non-negative integers. b is optional and
             may be removed.
@@ -38,11 +37,17 @@
             <li>a[] = a<sup>a</sup></li>
             <li>a[@0]= a[@]</li>
             <li>b > 0: a[@b]= a[@b - 1][@b - 1]...[@b - 1][@b - 1], with a copies of "[@b - 1]"</li>
-            <li># is another ampersand-structure sequence: a[@&<sub>&<sub>...<sub>&<sub>#0</sub></sub></sub></sub>] with x layers in the ampersand-structure after @ = a[@&<sub>&<sub>...<sub>&<sub>#</sub></sub></sub></sub>] with x layers in the ampersand-structure after @ (x - 1 if # is empty and x > 0)</li>
-            <li># is another ampersand-structure sequence: a[@&<sub>&<sub>...<sub>&<sub>#&</sub></sub></sub></sub>] with x layers in the ampersand-structure after @ = a[@&<sub>&<sub>...<sub>&<sub>#a</sub></sub></sub></sub>] with x layers in the ampersand-structure after @</li>
-            <li># is another ampersand structure sequence, y > 0: a[@&<sub>&<sub>...<sub>&<sub>#x</sub></sub></sub></sub>] with y layers in the ampersand-structure after @  = a[@&<sub>&<sub>...<sub>&<sub>#x - 1</sub>&<sub>#x - 1</sub>...&<sub>#x - 1</sub>&<sub>#x - 1</sub></sub></sub></sub>]
-                with y layers in the ampersand-structure after @ and a copies of "#x - 1"</sub></li>
+            <li># is another ampersand-structure sequence: a[@S(x)<sub>#0</sub>] = a[@&<sub>&<sub>...<sub>&<sub>#</sub></sub></sub></sub>]</li>
+            <li># is another ampersand-structure sequence: a[@S(x)<sub>#&</sub>] = a[@S(x)<sub>#a</sub>]</li>
+            <li># is another ampersand structure sequence: a[@S(x)<sub>&<sub>#y</sub></sub>] = a[@S(x)<sub>&<sub>#y - 1</sub>&<sub>#y - 1</sub>...&<sub>#y - 1</sub>&<sub>#y - 1</sub></sub>] with a copies of "#y - 1"</sub></li>
         </ol>
+        <p>In the above definition, the string S(x) for a non-negative integer x is defined as follows:</p>
+        <ol>
+            <li>S(0) = ø (empty string)</li>
+            <li>x > 0: S(x) = &<sub>S(x - 1)</sub></li>
+        </ol>
+        <p>For example, S(1) = &, S(2) = &<sub>&</sub>, and S(3) = &<sub>&<sub>&</sub></sub>.</p>
+        <p>Note: ø<sub>@</sub> where @ is an ampersand-structure sequence is simply @.</p>
         <h2>Examples</h2>
         <p>
             2[&<sub>&</sub>1]
