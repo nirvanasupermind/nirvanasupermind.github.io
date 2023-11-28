@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    </base>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UberCalc</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <div id="menu"></div>
+
+    <div id="content" class="content">
+        <h1 style="text-align: center;">UberCalc - The calculator that will never, EVER overflow</h1>
+        <p>This goes up to &omega;<sup>2</sup> level in FGH. Inspired by <a
+                href="http://mrob.com/pub/comp/hypercalc/hypercalc-javascript.html">HyperCalc</a></a>, and based on my
+            own <a href="https://github.com/nirvanasupermind/hugenumberjs">JavaScript huge number library</a>. Type
+            "help" to show function list.</p>
+        <div style="width: 90vw; height: 75vh; border: 2px solid gray; position: relative;">
+            <p id="results"></p>
+            <div style="position: absolute; bottom: 0; left: 0">
+                <input type="text" id="expr"></input>
+                <input type="button" onclick="calculate();" value="Calculate"></input>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery-3.6.3.min.js"></script>
+    <script src="../js/parsimmon.js"></script>
+    <script src="../js/HugeNumber.js"></script>
+    <script src="../js/ubercalc.js"></script>
+<script>
+        $("#menu").load("menu.html");
+    </script>
+</body>
+
+</html>
