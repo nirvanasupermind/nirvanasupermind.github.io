@@ -37,9 +37,6 @@
             <li>a[] = a<sup>a</sup></li>
             <li>a[@0]= a[@]</li>
             <li>b > 0: a[@b]= a[@b - 1][@b - 1]...[@b - 1][@b - 1], with a copies of "[@b - 1]"</li>
-            <li># is another ampersand-structure sequence: a[@S(x)<sub>#0</sub>] = a[@S(x)<sub>#</sub>]</li>
-            <li># is another ampersand-structure sequence: a[@S(x)<sub>#&</sub>] = a[@S(x)<sub>#a</sub>]</li>
-            <li># is another ampersand structure sequence, y > 0: a[@S(x)<sub>&<sub>#y</sub></sub>] = a[@S(x)<sub>&<sub>#y - 1</sub>&<sub>#y - 1</sub>...&<sub>#y - 1</sub>&<sub>#y - 1</sub></sub>] with a copies of "&<sub>#y - 1</sub>"</li>
         </ol>
         <p>In the above definition, the string S(x) for a non-negative integer x is defined as follows:</p>
         <ol>
