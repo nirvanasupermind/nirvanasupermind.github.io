@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    </base>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <div id="menu"></div>
+
+    <div id="content" class="content">    
+        <ol>
+            <li>us(a, b, c, d) = us(a, b, c, d)[a]</li>
+            <li>us(a, b, 0, 0)[x] = bx</li>
+            <li>us(a, b, 1, d)[x] = a</li>
+            <li>c > 0: us(a, b, c, 0)[x] = us(a, us(a, b, c,0)[x - 1], c - 1, 0) </li>
+            <li>d > 0: us(a, b, 0, d)[x] = us(a, b, x, d - 1)</li>
+            <li>c > 0, d > 0: us(a, b, c, d)[0] = us(a, b, 0, d)</li>
+            <li>c > 0, d > 0, x > 0: us(a, b, c, d)[x] = us(a, us(a, b - 1, c, d)[x], c, d)[x - 1]</li>
+            
+        </ol>
+    </div>
+
+    <script src="../js/jquery-3.6.3.min.js"></script>
+    <script>
+        $("#menu").load("menu.html");
+    </script>
+</body>
+
+</html>
