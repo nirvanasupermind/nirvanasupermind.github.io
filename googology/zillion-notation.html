@@ -30,17 +30,16 @@
         </p>
         <ol>
             <li>z() = 0</li>
-            <li>z(a) = 10^(3a+3)<s/li>
-            <li>z(@, 1) = z(@)</li>
+            <li>z(a) = 1000a<s/li>
+            <li>z(@, 0) = z(@)</li>
             <li>b > 0: z(a, b, @) = z(10^3a, (b-1), @)</li>
         </ol>
-        <p>Note: Originally, the notation used 0 as a terminal value, but this was updated to 1, because tier 0 is not used due to it corresponding to English number names.</p>
         <p>
             If none of these rules apply, start the process shown below, starting from the second entry:
         </p>
         <ul>
-            <li>If the entry is 1, then jump to the next entry.</li>
-            <li>If the entry is not 1, then:
+            <li>If the entry is 0, then jump to the next entry.</li>
+            <li>If the entry is not 0, then:
                 <ul>
                     <li>Let n equal to this entry, and a equal to the first entry of the input.</li>
                     <li>Decrease n by 1.</li>
