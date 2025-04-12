@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>linear stronger array notation</title>
+    <title>dimensional stronger array notation</title>
     <link rel="stylesheet" href="../style.css" />
 </head>
 
@@ -14,21 +14,29 @@
     <div id="menu"></div>
 
     <div id="content" class="content"> 
-        <p>The linear stronger array notation is a notation which allows reducing an expression made up of several numbers into a typically extremely large number, for the purpose of googology. Let @ represent an arbitrary (possibly empty) comma-separated list of non-negative integers. 
-            A valid expression is of the form a{@}, where a can be any non-negative integer and is referred to as the "base".
-        <p>In order to evaluate an expression into a number, the following rules should be used:</p>
+        <p>
+            X is an sequence of arbitrary non-negative integers (any separators can be between them)
+            Y is an sequence of only 0 (any separators can be between them)
+        </p>
         <ol>
             <li>a{} = a + 1</li>
-            <li>a{@, 0} = a{@} (remove trailing zeros)</li>
-            <li>a{b, @} = a{b - 1, @}{b - 1, @} if b > 0</li>            
+            <li>a{X(n)0} = a{X} (remove trailing zeros)</li>
+            <li>a{b(n)@} = a{b - 1(n)@}{b - 1(n)@} if b > 0</li>            
         </ol>
         <p>If none of the rules apply, start this process starting from the first entry inside the curly brackets:</p>
         <ol>
             <li>If the entry is equal to 0, jump to the next entry.</li>
-            <li>If the entry is greater than 0, there must be a 0 preceding it. Replace the "0, b" with "a, b - 1" where a is the base and b is the nonzero entry. In simpler terms: a{0,0...,0,0,b} = a{0,0...,0,a,b-1} if b > 0. The process ends.</li>
+            <li>If the entry is greater than 0, there must be a 0 preceding it.
+                <ol>
+                    <li>if there is a comma between the 0 and the nonzero entry, replace the "0,b" with "a,b-1" where a is the base and b is the nonzero entry. In simpler terms: a{0,0...,0,0,b} = a{0,0...,0,a,b-1} if b > 0. The process ends.</li>
+                    <li>if there is a non-comma separator (n) between the 0 and the nonzero entry, replace the "0(n)b" with "a(n - 1)a(n - 1)...a(n-1)a(n)b-1" with b copies of a before the (n), where a is the base and b is the nonzero entry. The process ends.</li>
+                </ol>
+            </li>
         </ol>
         <p>The application of the rules and/or process should be repeated until the expression is reduced to a number.</p>
         <p>
+        10{100, 0(1)1}
+        = 10{100, 0(1)}
         Note: This notation is similar to "Middle-growing hierarchy" by Ikosarakt1, especially for 1 entry since m(b, a) = a{b} for finite b.
         I chose to make this notation more like a middle-growing hierarchy extension instead of more like an up-arrow notation extension because it leads to a simpler definition while still having the same growth rate in the end.
         Some examples with up-arrow notation/BEAF conversion:
