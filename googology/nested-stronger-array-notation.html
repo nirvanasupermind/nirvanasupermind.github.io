@@ -31,7 +31,7 @@
                 <ol>
                     <li>If there is a comma between the 0 and the nonzero entry, replace the "0, b" with "a, b - 1" where a is the base and b is the nonzero entry. In simpler terms: a{0,0...,0,0,b} = a{0,0...,0,a,b-1} if b > 0. The process ends.</li>
                     <li>If there is a non-comma separator (n(m)@) where n > 0 between the 0 and the nonzero entry, replace the "0(n@)b" with "a(n - 1@)a(n - 1@)...a(n - 1@)a(n@)b-1" with b copies of a before the (n@), where a is the base and b is the nonzero entry. The process ends.</li>
-                    <li>If there is a non-comma separator (0(m)@) between the 0 and the nonzero entry, apply the rule 2 of the notation to remove trailing zeros and/or this process within the separator itself to simplify it. </li>
+                    <li>If there is a non-comma separator (0(m)@) between the 0 and the nonzero entry, simplify the separator itself, applying the rule 2 of this notation to remove trailing zeros and/or this processt. </li>
                 </ol>
             </li>
         </ol>
