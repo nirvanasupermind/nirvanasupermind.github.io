@@ -13,23 +13,80 @@
 <body>
     <div id="menu"></div>
 
-    <div id="content" class="content"> 
-        <p>The linear stronger array notation is a notation which allows reducing an expression made up of several numbers into a typically extremely large number, for the purpose of googology. Let @ represent an arbitrary (possibly empty) comma-separated list of non-negative integers. 
-            A valid expression is of the form a{@}, where a can be any non-negative integer and is referred to as the "base".
+    <div id="content" class="content">
+        <h1>Definition</h1>
+        <p>The linear stronger array notation is a notation which allows reducing an expression made up of several
+            numbers into a single extremely large number, for the purpose of googology. Let @ represent an arbitrary
+            (possibly empty) comma-separated list of non-negative integers.
+            A valid expression is of the form a{@}, where a can be any non-negative integer and is referred to as the
+            "base".
         <p>In order to evaluate an expression into a number, the following rules should be used:</p>
         <ol>
             <li>a{} = a + 1</li>
             <li>a{@, 0} = a{@} (remove trailing zeros)</li>
-            <li>a{b, @} = a{b - 1, @}{b - 1, @} if b > 0</li>            
+            <li>a{b, @} = a{b - 1, @}{b - 1, @} if b > 0</li>
         </ol>
         <p>If none of the rules apply, start this process starting from the first entry inside the curly brackets:</p>
         <ol>
             <li>If the entry is equal to 0, jump to the next entry.</li>
-            <li>If the entry is greater than 0, there must be a 0 preceding it. Replace the "0, b" with "a, b - 1" where a is the base and b is the nonzero entry. In simpler terms: a{0,0...,0,0,b} = a{0,0...,0,a,b-1} if b > 0. The process ends.</li>
+            <li>If the entry is greater than 0, there must be a 0 preceding it. Replace the "0, b" with "a, b - 1" where
+                a is the base and b is the nonzero entry. In simpler terms: a{0,0...,0,0,b,@} = a{0,0...,0,a,b-1,@} if b
+                > 0. The process ends.</li>
         </ol>
-        <p>The application of the rules and/or process should be repeated until the expression is reduced to a number.</p>
+        <p>The application of the rules and/or process should be repeated until the expression is reduced to a number.
+        </p>
         <p>
-        Note: This notation is similar to "Middle-growing hierarchy" by Ikosarakt1, especially for 1 entry since m(b, a) = a{b} for finite b.
+        <p>
+            Note: This notation is similar to "Middle-growing hierarchy" by Ikosarakt1, especially for 1 entry since
+            m(b, a) = a{b} for finite b.
+            I chose to make this notation more like a middle-growing hierarchy extension instead of more like an
+            up-arrow notation extension because it leads to a simpler definition while still having the same growth rate
+            in the end.</p>
+        <h1>Comparison to fast-growing hierarchy</h1>
+        <p>The limti of this notation is around &omega;<sup>&omega;</sup> in the FGH with the Wainer hierarchy as the system of fundamental sequences. Below I will give the comparison of this notation to the fast-growing hierarchy with the Wainer hierarchy as the system of fundamental sequences:</p>
+        <p>
+            a{} = f<sub>0</sub>(a)
+            a{1} = f<sub>0</sub><sup>2</sup>(a)
+            a{2} = f<sub>0</sub><sup>4</sup>(a)
+            a{3} = f<sub>0</sub><sup>8</sup>(a)
+            a{4} = f<sub>0</sub><sup>16</sup>(a)
+            a{5} = f<sub>0</sub><sup>32</sup>(a)
+            a{0, 1} ≈ f<sub>2</sub>(a)
+            a{1, 1} ≈ f<sub>2</sub><sup>2</sup>(a)
+            a{2, 1} ≈ f<sub>2</sub><sup>4</sup>(a)
+            a{3, 1} ≈ f<sub>2</sub><sup>8</sup>(a)
+            a{4, 1} ≈ f<sub>2</sub><sup>16</sup>(a)
+            a{0, 2} ≈ f<sub>3</sub>(a)
+            a{1, 2} ≈ f<sub>3</sub><sup>2</sup>(a)
+            a{2, 2} ≈ f<sub>3</sub><sup>4</sup>(a)
+            a{3, 2} ≈ f<sub>3</sub><sup>8</sup>(a)
+            a{4, 2} ≈ f<sub>3</sub><sup>16</sup>(a)
+            a{0, 3} ≈ f<sub>4</sub>(a)
+            a{1, 3} ≈ f<sub>4</sub><sup>2</sup>(a)
+            a{0, 0, 1} ≈ f<sub>&omega;</sub>(a)
+            a{1, 0, 1} ≈ f<sub>&omega;</sub><sup>2</sup>(a)
+            a{0, 1, 1} ≈ f<sub>&omega;+1</sub>(a)
+            a{1, 1, 1} ≈ f<sub>&omega;+1</sub><sup>2</sup>(a)
+            a{0, 2, 1} ≈ f<sub>&omega;+2</sub>(a)
+            a{0, 3, 1} ≈ f<sub>&omega;+3</sub>(a)
+            a{0, 4, 1} ≈ f<sub>&omega;+4</sub>(a)
+            a{0, 0, 2} ≈ f<sub>&omega;2</sub>(a)
+            a{0, 1, 2} ≈ f<sub>&omega;2+1</sub>(a)
+            a{0, 0, 3} ≈ f<sub>&omega;3</sub>(a)
+            a{0, 0, 4} ≈ f<sub>&omega;4</sub>(a)
+            a{0, 0, 0, 1} ≈ f<sub>&omega;<sup>2</sup></sub>(a)
+            a{1, 0, 0, 1} ≈ f<sub>&omega;<sup>2</sup></sub><sup>2</sup>(a)
+            a{0, 1, 0, 1} ≈ f<sub>&omega;<sup>2</sup>+&omega;</sub>(a)
+            a{0, 0, 1, 1} ≈ f<sub>&omega;<sup>2</sup>+&omega;+&omega;</sub>(a)
+            a{0, 0, 0, 2} ≈ f<sub>&omega;<sup>2</sup>2</sub>(a)
+            a{0, 0, 0, 3} ≈ f<sub>&omega;<sup>2</sup>3</sub>(a)
+            a{0, 0, 0, 4} ≈ f<sub>&omega;<sup>2</sup>4</sub>(a)
+            a{0, 0, 0, 0, 1} ≈ f<sub>&omega;<sup>3</sup></sub>(a)
+            a{0, 0, 0, 0, 2} ≈ f<sub>&omega;<sup>3</sup>2</sub>(a)
+            a{0, 0, 0, 0, 0, 1} ≈ f<sub>&omega;<sup>4</sup></sub>(a)
+        </p>
+
+        <!-- Note: This notation is similar to "Middle-growing hierarchy" by Ikosarakt1, especially for 1 entry since m(b, a) = a{b} for finite b.
         I chose to make this notation more like a middle-growing hierarchy extension instead of more like an up-arrow notation extension because it leads to a simpler definition while still having the same growth rate in the end.
         Some examples with up-arrow notation/BEAF conversion:
         a{} = a + 1
@@ -68,12 +125,12 @@
         a{0, 0, 0, 0, 1} ≈ {2, a, a, a, a}
         a{0, 0, 0, 1, 1} ≈ {2, a, a, a, 1, 2}
         a{0, 0, 0, 0, 2} ≈ {2, a, a, a, a, 2}
-        a{0, 0, 0, 0, 0, 1} ≈ {2, a, a, a, a, a}
-    </p>
+        a{0, 0, 0, 0, 0, 1} ≈ {2, a, a, a, a, a} -->
+        </p>
 
     </div>
 
-    
+
 
     <script src="../js/jquery-3.6.3.min.js"></script>
     <script>
