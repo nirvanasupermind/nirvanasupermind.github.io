@@ -14,10 +14,11 @@
     <div id="menu"></div>
 
     <div id="content" class="content"> 
-        <p>
-            X is an sequence of arbitrary non-negative integers (any separators can be between them)
-            Y is an sequence of only 0 (any separators can be between them)
-        </p>
+        <p>The nested stronger array notation is a notation which allows reducing an expression made up of several
+            numbers into a single extremely large number, for the purpose of googology. Let @ represent an arbitrary
+            (possibly empty) list of non-negative integers which can be separated by any separator of the form (@). The comma can be used as a substitute symbol for the separator (0).
+            A valid expression is of the form a{@}, where a can be any non-negative integer and is referred to as the
+            "base".
         <ol>
             <li>a{} = a + 1</li>
             <li>a{@(n)0} = a{@} (remove trailing zeros)</li>
@@ -30,11 +31,56 @@
                 <ol>
                     <li>If there is a comma between the 0 and the nonzero entry, replace the "0, b" with "a, b - 1" where a is the base and b is the nonzero entry. In simpler terms: a{0,0...,0,0,b,@} = a{0,0...,0,a,b-1,@} if b > 0. The process ends.</li>
                     <li>If there is a non-comma separator (n(m)@) where n > 0 between the 0 and the nonzero entry, replace the "0(n@)b" with "a(n - 1@)a(n - 1@)...a(n - 1@)a(n@)b-1" with b copies of a before the (n@), where a is the base and b is the nonzero entry. The process ends.</li>
-                    <li>If there is a non-comma separator (0(m)@) between the 0 and the nonzero entry, simplify the separator itself, applying theq rule 2 of this notation to remove trailing zeros and/or this processt. </li>
+                    <li>If there is a non-comma separator (0(m)@) between the 0 and the nonzero entry, simplify the separator itself, removing trailing zeros (analogous to rule 2 of the notation) and/or applying this process on the numbers inside the separator until the separator cannot be simplified anymore. </li>
                 </ol>
             </li>
         </ol>
         <p>The application of the rules and/or process should be repeated until the expression is reduced to a number.</p>
+        <h1>Comparison to fast-growing hierarchy</h1>
+        <p>The limit of this notation is around &omega;<sup>&omega;</sup> in the FGH with the Wainer hierarchy as the system of fundamental sequences. Below I will give the comparison of this notation to the fast-growing hierarchy with the Wainer hierarchy as the system of fundamental sequences:</p>
+        <p>
+            a{0(0,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup></sup></sub>(a)
+            a{1(0,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup></sup></sub><sup>2</sup>(a)
+            a{2(0,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup></sup></sub><sup>4</sup>(a)
+            a{3(0,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup></sup></sub><sup>8</sup>(a)
+            a{4(0,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup></sup></sub><sup>16</sup>(a)
+            a{0,1(0,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup></sup>+1</sub>(a)
+            a{0,0,1(0,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup></sup>+&omega;</sub>(a)
+            a{0(1)1(0,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup></sup>+&omega;<sup>&omega;</sup></sub>(a)
+            a{0(2)1(0,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup></sup>+&omega;<sup>&omega;<sup>2</sup></sup></sub>(a)
+            a{0(0,1)2} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup></sup>2</sub>(a)
+            a{0(0,1)3} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup></sup>3</sub>(a)
+            a{0(0,1)4} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup></sup>4</sub>(a)
+            a{0(0,1)0,1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup>+1</sup></sub>(a)
+            a{0(0,1)0,0,1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup>+2</sup></sub>(a)
+            a{0(0,1)0(1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup>+&omega;</sup></sub>(a)
+            a{0(0,1)0(2)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup>+&omega;<sup>2</sup></sup></sub>(a)
+            a{0(0,1)0(0,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup>2</sup></sub>(a)
+            a{0(0,1)0(0,1)2} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup>2</sup>2</sub>(a)
+            a{0(0,1)0(0,1)0(0,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup>3</sup></sub>(a)
+            a{0(1,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;+1</sup></sup></sub>(a)            
+            a{0(1,1)2} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;+1</sup></sup>2</sub>(a)
+            a{0(2,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;+2</sup></sup></sub>(a)
+            a{0(3,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;+3</sup></sup></sub>(a)
+            a{0(4,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;+4</sup></sup></sub>(a)
+            a{0(0,2)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;2</sup></sup></sub>(a)
+            a{0(1,2)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;2+1</sup></sup></sub>(a)
+            a{0(2,2)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;2+2</sup></sup></sub>(a)
+            a{0(3,2)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;2+3</sup></sup></sub>(a)
+            a{0(4,2)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;2+4</sup></sup></sub>(a)
+            a{0(0,3)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;3</sup></sup></sub>(a)
+            a{0(1,3)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;3+1</sup></sup></sub>(a)
+            a{0(0,4)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;4</sup></sup></sub>(a)
+            a{0(0,0,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;<sup>2</sup></sup></sup></sub>(a)
+            a{0(1,0,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;<sup>2</sup>+1</sup></sup></sub>(a)
+            a{0(0,1,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;<sup>2</sup>+&omega;</sup></sup></sub>(a)
+            a{0(0,0,2)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;<sup>2</sup>2</sup></sup></sub>(a)
+            a{0(0,0,3)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;<sup>2</sup>3</sup></sup></sub>(a)
+            a{0(0,0,4)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;<sup>2</sup>4</sup></sup></sub>(a)
+            a{0(0,0,0,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;<sup>3</sup></sup></sup></sub>(a)
+            a{0(0,0,0,0,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;<sup>4</sup></sup></sup></sub>(a)
+            a{0(0(1)1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;<sup>&omega;</sup></sup></sup></sub>(a)
+        </p>
     </p>
 
     </div>
