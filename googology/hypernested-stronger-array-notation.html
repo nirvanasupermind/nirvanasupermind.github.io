@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    </base>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dimensional stronger array notation</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <div id="menu"></div>
+
+    <div id="content" class="content"> 
+        <p>The hypernested stronger array notation is a notation which allows reducing an expression made up of several
+            numbers into a single extremely large number, for the purpose of googology. Let @ represent an arbitrary
+            (possibly empty) list of non-negative integers which can be separated by any separator of the form (@) or |@|. The comma can be used as a substitute symbol for the separator (0).
+            A valid expression is of the form a{@}, where a can be any non-negative integer and is referred to as the
+            "base". Lastly, let % represent any valid separator (anything of the form (@) or |@|).
+            In order to evaluate an expression into a number, the following rules should be used:</p>
+
+        <ol>
+            <li>a{} = a + 1</li>
+            <li>a{@%0} = a{@} (remove trailing zeros)</li>
+            <li>a{b%@} = a{b - 1%@}{b - 1%@} if b > 0</li>
+        </ol>
+        <p>If none of the rules apply, start this process starting from the first entry inside the curly brackets:</p>
+        <ol>
+            <li>If the entry is equal to 0, jump to the next entry.</li>
+            <li>If the entry is greater than 0, there must be a 0 preceding it.
+                <ol>
+                    <li>If there is a comma between the 0 and the nonzero entry, replace the "0, b" with "a, b - 1" where a is the base and b is the nonzero entry. In simpler terms: a{0,0...,0,0,b,@} = a{0,0...,0,a,b-1,@} if b > 0. The process ends.</li>
+                    <li>If there is a non-comma separator (n%@) where n > 0 between the 0 and the nonzero entry, replace the "0(n%@)b" with "a(n - 1%@)a(n - 1%@)...a(n - 1%@)a(n%@)b-1" with b copies of a before the (n@), where a is the base and b is the nonzero entry. The process ends.</li>
+                    <li>If there is a non-comma separator (0%@) between the 0 and the nonzero entry, simplify the separator itself, removing trailing zeros (analogous to rule 2 of the notation) and/or applying this process on the numbers inside the separator until the separator cannot be simplified anymore. The process ends.</li>
+                    <li>If there is a separator |0| between the 0 and the nonzero entry, replace the "0|0|b" with "...a(a(a)a)a..." with b nesting levels, where a is the base and b is the nonzero entry. The process ends. (To clarify what "b nesting levels" means: 1 nesting level is a, 2 nesting levels is a(a)a, 3 nesting levels is a(a(a)a)a, etc.)</li>
+                    <li>If there is a separator |n%@| where n > 0 between the 0 and the nonzero entry, replace the "0|n%@|b" with "a|n - 1%@|a|n - 1%@|...a|n - 1%@|a|n - 1%@|b-1" with b copies of a before the (n@), where a is the base and b is the nonzero entry. The process ends.</li>
+                    <li>If there is a separator |0%@| between the 0 and the nonzero entry, simplify the separator itself, removing trailing zeros (analogous to rule 2 of the notation) and/or applying this process on the numbers inside the separator until the separator cannot be simplified anymore. The process ends.</li>
+                </ol>
+            </li>
+        </ol>
+        <p>The application of the rules and/or process should be repeated until the expression is reduced to a number.</p>
+        <h1>Comparison to fast-growing hierarchy</h1>
+        <p>The limit of this notation is around (idk right now) in the FGH with the Wainer hierarchy as the system of fundamental sequences. Below I will give the comparison of this notation to the fast-growing hierarchy with the Wainer hierarchy as the system of fundamental sequences:</p>
+        <p>
+            a{0|0|1} ≈ f<sub>&epsilon;<sub>0</sub></sub>(a)
+            a{1|0|1} ≈ f<sub>&epsilon;<sub>0</sub></sub><sup>2</sup>(a)
+            a{2|0|1} ≈ f<sub>&epsilon;<sub>0</sub></sub><sup>4</sup>(a)
+            a{3|0|1} ≈ f<sub>&epsilon;<sub>0</sub></sub><sup>8</sup>(a)
+            a{4|0|1} ≈ f<sub>&epsilon;<sub>0</sub></sub><sup>16</sup>(a)
+            a{0,1|0|1} ≈ f<sub>&epsilon;<sub>0</sub>+1</sub>(a)
+            a{0,0,1|0|1} ≈ f<sub>&epsilon;<sub>0</sub>+&omega;</sub>(a)
+            a{0(1)1|0|1} ≈ f<sub>&epsilon;<sub>0</sub>+&omega;<sup>&omega;</sup></sub>(a)
+            a{0(1)0(1)1|0|1} ≈ f<sub>&epsilon;<sub>0</sub>+&omega;<sup>&omega;2</sup></sub>(a)
+            a{0(2)1|0|1} ≈ f<sub>&epsilon;<sub>0</sub>+&omega;<sup>&omega;<sup>2</sup></sup></sub>(a)
+            a{0(0,1)1|0|1} ≈ f<sub>&epsilon;<sub>0</sub>+&omega;<sup>&omega;<sup>&omega;</sup></sup></sub>(a)
+            a{0(0,0,1)1|0|1} ≈ f<sub>&epsilon;<sub>0</sub>+&omega;<sup>&omega;<sup>&omega;</sup></sup></sub>(a)
+        </p>
+    </p>
+
+    </div>
+
+    
+
+    <script src="../js/jquery-3.6.3.min.js"></script>
+    <script>
+        $("#menu").load("menu.html");
+    </script>
+</body>
+
+</html>
