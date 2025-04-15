@@ -15,14 +15,15 @@
 
     <div id="content" class="content"> 
         <p>The nested stronger array notation is a notation which allows reducing an expression made up of several
-            numbers into a single extremely large number, for the purpose of googology. Let @ represent an arbitrary
-            (possibly empty) list of non-negative integers which can be separated by any separator of the form (@). The comma can be used as a substitute symbol for the separator (0).
-            A valid expression is of the form a{@}, where a can be any non-negative integer and is referred to as the
-            "base".
+            numbers into a single extremely large number, for the purpose of googology. Define an array as any
+            (possibly empty) list of non-negative integers (entries) separated by separators. A separator can be any array wrapped in round braces, like (1,2,3). The comma may be used a shorthand for the separator () or (0).
+
+            Let @ denote an arbitrary array and let $ denote an arbitrary separator. A valid expression is of the form a{@}, where a can be any non-negative integer and is referred to as the
+            "base".  In order to evaluate an expression into a number, the following rules should be used:</p>
         <ol>
             <li>a{} = a + 1</li>
-            <li>a{@(n)0} = a{@} (remove trailing zeros)</li>
-            <li>a{b(n)@} = a{b - 1(n)@}{b - 1(n)@} if b > 0</li>            
+            <li>a{@$0} = a{@} (remove trailing zeros)</li>
+            <li>a{b$@} = a{b - 1$@}{b - 1$@} if b > 0</li>            
         </ol>
         <p>If none of the rules apply, start this process starting from the first entry inside the curly brackets:</p>
         <ol>
@@ -30,8 +31,8 @@
             <li>If the entry is greater than 0, there must be a 0 preceding it.
                 <ol>
                     <li>If there is a comma between the 0 and the nonzero entry, replace the "0, b" with "a, b - 1" where a is the base and b is the nonzero entry. In simpler terms: a{0,0...,0,0,b,@} = a{0,0...,0,a,b-1,@} if b > 0. The process ends.</li>
-                    <li>If there is a non-comma separator (n(m)@) where n > 0 between the 0 and the nonzero entry, replace the "0(n@)b" with "a(n - 1@)a(n - 1@)...a(n - 1@)a(n@)b-1" with b copies of a before the (n@), where a is the base and b is the nonzero entry. The process ends.</li>
-                    <li>If there is a non-comma separator (0(m)@) between the 0 and the nonzero entry, simplify the separator itself, removing trailing zeros (analogous to rule 2 of the notation) and/or applying this process on the numbers inside the separator until the separator cannot be simplified anymore. The process ends.</li>
+                    <li>If there is a non-comma separator (n$@) where n > 0 between the 0 and the nonzero entry, replace the "0(n$@)b" with "a(n - 1$@)a(n - 1$@)...a(n - 1$@)a(n$@)b-1" with b copies of a before the (n$@), where a is the base and b is the nonzero entry. The process ends.</li>
+                    <li>If there is a non-comma separator (0$@) between the 0 and the nonzero entry, simplify the separator itself, removing trailing zeros (analogous to rule 2 of the notation) and/or applying this process on the numbers inside the separator until the separator cannot be simplified anymore. The process ends.</li>
                 </ol>
             </li>
         </ol>
@@ -106,7 +107,7 @@
 
     <script src="../js/jquery-3.6.3.min.js"></script>
     <script>
-        $("#menu").load("menu.html");
+        $("$menu").load("menu.html");
     </script>
 </body>
 
