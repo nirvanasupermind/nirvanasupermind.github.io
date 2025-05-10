@@ -30,7 +30,7 @@
             <li>If the entry is equal to 0, jump to the next entry.</li>
             <li>If the entry is greater than 0, there must be a 0 preceding it.
                 <ol>
-                    <li>if there is a comma between the 0 and the nonzero entry, replace the "0,b" with "a,b-1" where a is the base and b is the nonzero entry. In simpler terms: a{0,0...,0,0,b,@} = a{0,0...,0,a,b-1,@} if b > 0. The process ends.</li>
+                    <li>if there is a comma between the 0 and the nonzero entry, replace the "0,b" with "a,b-1" where a is the base and b is the nonzero entry. The process ends.</li>
                     <li>if there is a non-comma separator (n) between the 0 and the nonzero entry, replace the "0(n)b" with "a(n - 1)a(n - 1)...a(n-1)a(n)b-1" with b copies of a before the (n), where a is the base and b is the nonzero entry. The process ends.</li>
                 </ol>
             </li>
