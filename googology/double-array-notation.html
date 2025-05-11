@@ -46,16 +46,16 @@
                         and/or applying this process on the numbers inside the left half of the separator until the left
                         half of the separator cannot be simplified anymore. The process ends.</li>
                     <li>If there is a non-comma separator (;n$@) where n > 0 between the 0 and the nonzero entry,
-                        replace the "0(;n$@)b" with the string s<sub>a</sub> where the string s<sub>k</sub> for
+                        replace the "0(;n$@)b" with the string s<sub>b</sub> where the string s<sub>k</sub> for
                         non-negative integer k is defined recursively as follows:
                         <ol>
                             <li>s<sub>0</sub> = a</li>
                             <li>s<sub>k</sub> = a(s<sub>k - 1</sub>;n - 1$@)a if k > 0</li>
                         </ol>
-                        For example, s<sub>1</sub> = a(a;n - 1$@)a, and s<sub>2</sub> = a(a(a;n - 1$@)a;n - 1$@).
+                        For example, s<sub>1</sub>= a(a;n - 1$@)a, and s<sub>2</sub> = a(a(a;n - 1$@)a;n - 1$@).
                         The process ends.
                     </li>
-                    <li>If there is a non-comma separator (;0$@) etween the 0 and the nonzero entry, simplify the right
+                    <li>If there is a non-comma separator (;0$@) between the 0 and the nonzero entry, simplify the right
                         half of the separator itself, removing trailing zeros (analogous to rule 2 of the notation)
                         and/or applying this process on the numbers inside the right half of the separator until the
                         right half of the separator cannot be simplified anymore. The process ends. </li>
@@ -65,11 +65,52 @@
         <p>The application of the rules and/or process should be repeated until the expression is reduced to a number.
         </p>
         <h1>Comparison to fast-growing hierarchy</h1>
-        <p>The limit of this notation is around &omega;<sup>&omega;</sup> in the FGH with the Wainer hierarchy as the
+        <p>I estimate that the limit of this notation is around &zeta;<sub>0</sub> in the FGH with the Veblen hierarchy as the
             system of fundamental sequences. Below I will give the comparison of this notation to the fast-growing
-            hierarchy with the Wainer hierarchy as the system of fundamental sequences:</p>
+            hierarchy with the Veblen hierarchy as the system of fundamental sequences:</p>
         <p>
-            a{0(0,1)1} ≈ f<sub>&omega;<sup>&omega;<sup>&omega;</sup></sup></sub>(a)
+            a{0(;1)1} ≈ f<sub>&epsilon;<sub>0</sub></sub>(a)<br />
+            a{1(;1)1} ≈ f<sub>&epsilon;<sub>0</sub></sub><sup>2</sup>(a)<br />
+            a{2(;1)1} ≈ f<sub>&epsilon;<sub>0</sub></sub><sup>4</sup>(a)<br />
+            a{3(;1)1} ≈ f<sub>&epsilon;<sub>0</sub></sub><sup>8</sup>(a)<br />
+            a{4(;1)1} ≈ f<sub>&epsilon;<sub>0</sub></sub><sup>16</sup>(a)<br />
+            a{0,1(;1)1} ≈ f<sub>&epsilon;<sub>0</sub>+1</sub>(a)<br />
+            a{1,1(;1)1} ≈ f<sub>&epsilon;<sub>0</sub>+1</sub><sup>2</sup>(a)<br />
+            a{0,2(;1)1} ≈ f<sub>&epsilon;<sub>0</sub>+2</sub>(a)<br />
+            a{0,0,1(;1)1} ≈ f<sub>&epsilon;<sub>0</sub>+&omega;</sub>(a)<br />
+            a{0,0,0,1(;1)1} ≈ f<sub>&epsilon;<sub>0</sub>+&omega;<sup>2</sup></sub>(a)<br />
+            a{0(1)1(;1)1} ≈ f<sub>&epsilon;<sub>0</sub>+&omega;<sup>&omega;</sup></sub>(a)<br />
+            a{0(2)1(;1)1} ≈ f<sub>&epsilon;<sub>0</sub>+&omega;<sup>&omega;<sup>2</sup></sup></sub>(a)<br />
+            a{0(0,1)1(;1)1} ≈ f<sub>&epsilon;<sub>0</sub>+&omega;<sup>&omega;<sup>&omega;</sup></sup></sub>(a)<br />
+            a{0(;1)2} ≈ f<sub>&epsilon;<sub>0</sub>2</sub>(a)<br />
+            a{0(;1)3} ≈ f<sub>&epsilon;<sub>0</sub>3</sub>(a)<br />
+            a{0(;1)4} ≈ f<sub>&epsilon;<sub>0</sub>4</sub>(a)<br />
+            a{0(;1)0,1} ≈ f<sub>&epsilon;<sub>0</sub>&omega;</sub>(a)<br />
+            a{0(;1)0,0,1} ≈ f<sub>&epsilon;<sub>0</sub>&omega;<sup>2</sup></sub>(a)<br />
+            a{0(;1)0(1)1} ≈ f<sub>&epsilon;<sub>0</sub>&omega;<sup>&omega;</sup></sub>(a)<br />
+            a{0(;1)0(;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>2</sup></sub>(a)<br />
+            a{0(;1)0(;1)0(;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>3</sup></sub>(a)<br />
+            a{0(;1)0(;1)0(;1)0(;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>4</sup></sub>(a)<br />
+            a{0(1;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;</sup></sub>(a)<br />
+            a{0(1;1)2} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;</sup>2</sub>(a)<br />
+            a{0(1;1)0(;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;+1</sup></sub>(a)<br />
+            a{0(1;1)0(1;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;2</sup></sub>(a)<br />
+            a{0(1;1)0(1;1)0(1;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;3</sup></sub>(a)<br />
+            a{0(2;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;<sup>2</sup></sup></sub>(a)<br />
+            a{0(3;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;<sup>3</sup></sup></sub>(a)<br />
+            a{0(0,1;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;<sup>&omega;</sup></sup></sub>(a)<br />
+            a{0(0,0,1;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;<sup>&omega;<sup>2</sup></sup></sup></sub>(a)<br />
+            a{0(0(1)1;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;<sup>&omega;<sup>&omega;</sup></sup></sup></sub>(a)<br />
+            a{0(0(;1)1;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&epsilon;<sub>0</sub></sup></sub>(a)<br />
+            a{0(0(0(;1)1;1)1;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&epsilon;<sub>0</sub><sup>&epsilon;<sub>0</sub></sup></sup></sub>(a)<br />
+            a{0(;2)1} ≈ f<sub>&epsilon;<sub>1</sub></sub>(a)<br />
+            a{0(;3)1} ≈ f<sub>&epsilon;<sub>2</sub></sub>(a)<br />
+            a{0(;4)1} ≈ f<sub>&epsilon;<sub>3</sub></sub>(a)<br />
+            a{0(;0,1)1} ≈ f<sub>&epsilon;<sub>&omega;</sub></sub>(a)<br />
+            a{0(;0,0,1)1} ≈ f<sub>&epsilon;<sub>&omega;<sup>2</sup></sub></sub>(a)<br />
+            a{0(;0(1)1)1} ≈ f<sub>&epsilon;<sub>&omega;<sup>&omega;</sup></sub></sub>(a)<br />
+            a{0(;0(;1)1)1} ≈ f<sub>&epsilon;<sub>&epsilon;<sub>0</sub></sub>(a)<br />
+            a{0(;0(;0(;1)1)1)1} ≈ f<sub>&epsilon;<sub>&epsilon;<sub>&epsilon;<sub>0</sub></sub></sub>(a)<br />
         </p>
         </p>
 
