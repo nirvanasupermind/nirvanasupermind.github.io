@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="../">
+    </base>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacked Quetta- Prefix System (SQPS)</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <div id="menu"></div>
+
+    <div id="content" class="content">
+        <h1>Extended Greek Prefix System (EGPS)</h1>
+        <p>This is my proposed extension of the SI prefix system for prefixes beyond quetta- (10<sup>30</sup>). </p>
+        <table>
+            <tbody>
+                <tr>
+                    <td><strong>Number</strong></td>
+                    <td><strong>Latin root</strong></td>
+                    <td><strong>Symbol</strong></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>hena</td>
+                    <td>h</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>di</td>
+                    <td>d</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>tri</td>
+                    <td>r</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>tetra</td>
+                    <td>t</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>penta</td>
+                    <td>p</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>hexa</td>
+                    <td>x</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>hepta</td>
+                    <td>h</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>octa</td>
+                    <td>o</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>ennea</td>
+                    <td>e</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>deca</td>
+                    <td>de (d if there is a nonzero ones place)</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>icosi</td>
+                    <td>i</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td>triaconta</td>
+                    <td>rc (r if there is a nonzero ones place))</td>
+                </tr>
+                <tr>
+                    <td>40</td>
+                    <td>tetraconta</td>
+                    <td>tc (t if there is a nonzero ones place))</td>
+                </tr>
+                <tr>
+                    <td>50</td>
+                    <td>pentaconta</td>
+                    <td>pc (p if there is a nonzero ones place))</td>
+                </tr>
+                <tr>
+                    <td>60</td>
+                    <td>hexaconta</td>
+                    <td>xc (x if there is a nonzero ones place))</td>
+                </tr>
+                <tr>
+                    <td>70</td>
+                    <td>heptaconta</td>
+                    <td>hc (h if there is a nonzero ones place))</td>
+                </tr>
+                <tr>
+                    <td>80</td>
+                    <td>octaconta</td>
+                    <td>oc (o if there is a nonzero ones place))</td>
+                </tr>
+                <tr>
+                    <td>90</td>
+                    <td>enneaconta</td>
+                    <td>ec (e if there is a nonzero ones place))</td>
+                </tr>
+                <tr>
+                    <td>100</td>
+                    <td>hecto</td>
+                    <td>he</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>For powers of 1,000 starting at 1,000, the "Greek root" is just the SI/EGPS prefix for that power of 10 and the symbol being its SI prefix symbol. For multiples, you stack roots-for example 200 is "dihecto", 30,000 is "triacontakilo", 200,000 is "dihectokilo" etc.</p>
+        <table>
+            <tbody>
+                <tr>
+                    <td><strong>Large prefix</strong></td>
+                    <td><strong>Small prefix</strong></td>
+                    <td><strong>Value</strong></td>
+                </tr>
+                <tr>
+                    <td>deka- (da)</td>
+                    <td>deci- (d)</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>hecto- (h)</td>
+                    <td>centi- (c)</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>kilo- (k)</td>
+                    <td>milli- (m)</td>
+                    <td>1,000</td>
+                </tr>
+                <tr>
+                    <td>decakilo- (dak)</td>
+                    <td>decimilli- (dm)</td>
+                    <td>10,000</td>
+                </tr>
+                <tr>
+                    <td>hectokilo- (hk)</td>
+                    <td>centimilli- (cm)</td>
+                    <td>100,000</td>
+                </tr>
+                <tr>
+                    <td>mega- (M)</td>
+                    <td>micro- (&mu;)</td>
+                    <td>1,000,000</td>
+                </tr>
+                <tr>
+                    <td>decamega- (daM)</td>
+                    <td>decimicro- (d&mu;)</td>
+                    <td>10,000,000</td>
+                </tr>
+                <tr>
+                    <td>hectomega- (hM)</td>
+                    <td>centimicro- (c&mu;)</td>
+                    <td>10,000,000</td>
+                </tr>
+                <tr>
+                    <td>giga- (G)</td>
+                    <td>nano- (n)</td>
+                    <td>1,000,000,000</td>
+                </tr>
+                <tr>
+                    <td>decagiga- (daG)</td>
+                    <td>decinano- (dn)</td>
+                    <td>10,000,000,000</td>
+                </tr>
+                <tr>
+                    <td>hectogiga- (G)</td>
+                    <td>centinano- (cn)</td>
+                    <td>100,000,000,000</td>
+                </tr>
+                <tr>
+                    <td>tera- ()</td>
+                    <td>pico- (p)</td>
+                    <td>1,000,000,000,000</td>
+                </tr>
+                <tr>
+                    <td>decatera- (da)</td>
+                    <td>decipico- (dp)</td>
+                    <td>10,000,000,000,000</td>
+                </tr>
+                <tr>
+                    <td>hectotera- (h)</td>
+                    <td>centipico- (cp)</td>
+                    <td>100,000,000,000,000</td>
+                </tr>
+                <tr>
+                    <td>peta- (P)</td>
+                    <td>femto- (f)</td>
+                    <td>10<sup>15</sup></td>
+                </tr>
+                <tr>
+                    <td>decapeta- (daP)</td>
+                    <td>decafemto- (df)</td>
+                    <td>10<sup>16</sup></td>
+                </tr>
+                <tr>
+                    <td>hectopeta- (hP)</td>
+                    <td>centifemto- (cf)</td>
+                    <td>10<sup>16</sup></td>
+                </tr>
+                <tr>
+                    <td>exa- (E)</td>
+                    <td>atto- (a)</td>
+                    <td>10<sup>18</sup></td>
+                </tr>
+                <tr>
+                    <td>decaexa- (daE)</td>
+                    <td>deciatto- (d)</td>
+                    <td>10<sup>19</sup></td>
+                </tr>
+                <tr>
+                    <td>hectoexa- (hE)</td>
+                    <td>centiatto- (h)</td>
+                    <td>10<sup>16</sup></td>
+                </tr>
+                <tr>
+                    <td>zetta- (Z)</td>
+                    <td>zepto- (z)</td>
+                    <td>10<sup>21</sup></td>
+                </tr>
+                <tr>
+                    <td>decazetta- (daZ)</td>
+                    <td>decizepto- (dz)</td>
+                    <td>10<sup>22</sup></td>
+                </tr>
+                <tr>
+                    <td>hectozetta- (hZ)</td>
+                    <td>centizepto- (cz)</td>
+                    <td>10<sup>23</sup></td>
+                </tr>
+                <tr>
+                    <td>yotta- (Y)</td>
+                    <td>yocto- (y)</td>
+                    <td>10<sup>24</sup></td>
+                </tr>
+                <tr>
+                    <td>decayotta- (daY)</td>
+                    <td>deciyocto- (dy)</td>
+                    <td>10<sup>25</sup></td>
+                </tr>
+                <tr>
+                    <td>hectoyotta- (hY)</td>
+                    <td>centiyocto- (cy)</td>
+                    <td>10<sup>26</sup></td>
+                </tr>
+                <tr>
+                    <td>ronna- (R)</td>
+                    <td>ronto- (r)</td>
+                    <td>10<sup>27</sup></td>
+                </tr>
+                <tr>
+                    <td>decaronna- (daR)</td>
+                    <td>decironto- (dr)</td>
+                    <td>10<sup>28</sup></td>
+                </tr>
+                <tr>
+                    <td>hectoronna- (hR)</td>
+                    <td>centironto- (cr)</td>
+                    <td>10<sup>29</sup></td>
+                </tr>
+                <tr>
+                    <td>quetta- (Q)</td>
+                    <td>quecto- (q)</td>
+                    <td>10<sup>30</sup></td>
+                </tr>
+                <tr>
+                    <td>decaquetta- (daQ)</td>
+                    <td>deciquecto- (dq)</td>
+                    <td>10<sup>31</sup></td>
+                </tr>
+                <tr>
+                    <td>hectoquetta- (hQ)</td>
+                    <td>centiquecto- (cq)</td>
+                    <td>10<sup>32</sup></td>
+                </tr>
+                <tr>
+                    <td>hendecetta- (HD)</td>
+                    <td>hendececto- (hd)</td>
+                    <td>10<sup>33</sup></td>
+                </tr>
+               <tr>
+                    <td>dodecetta- (DD)</td>
+                    <td>dodececto- (dd)</td>
+                    <td>10<sup>36</sup></td>
+                </tr>
+                <tr>
+                    <td>tridecetta- (RD)</td>
+                    <td>tridececto- (rd)</td>
+                    <td>10<sup>39</sup></td>
+                </tr>
+                <tr>
+                    <td>tetradecetta- (TD)</td>
+                    <td>tetradececto- (td)</td>
+                    <td>10<sup>42</sup></td>
+                </tr>
+                <tr>
+                    <td>pentadecetta- (PD)</td>
+                    <td>pentadececto- (pd)</td>
+                    <td>10<sup>45</sup></td>
+                </tr>
+                <tr>
+                    <td>hexadecetta- (XD)</td>
+                    <td>hexadececto- (xd)</td>
+                    <td>10<sup>48</sup></td>
+                </tr>
+                 <tr>
+                    <td>heptadecetta- (HD)</td>
+                    <td>heptadececto- (hd)</td>
+                    <td>10<sup>51</sup></td>
+                </tr>
+                <tr>
+                    <td>octadecetta- (OD)</td>
+                    <td>octadececto- (od)</td>
+                    <td>10<sup>54</sup></td>
+                </tr>
+                <tr>
+                    <td>enneadecetta- (ED)</td>
+                    <td>enneadececto- (ed)</td>
+                    <td>10<sup>57</sup></td>
+                </tr>
+                <tr>
+                    <td>icosetta- (I)</td>
+                    <td>icosecto- (i)</td>
+                    <td>10<sup>60</sup></td>
+                </tr>
+                <tr>
+                    <td>icosihenetta- (IH)</td>
+                    <td>icosihenecto- (ih)</td>
+                    <td>10<sup>63</sup></td>
+                </tr>
+                <tr>
+                    <td>icosidetta- (ID)</td>
+                    <td>icosidecto- (id)</td>
+                    <td>10<sup>66</sup></td>
+                </tr>
+                <tr>
+                    <td>icositretta- (IR)</td>
+                    <td>icositrecto- (ir)</td>
+                    <td>10<sup>69</sup></td>
+                </tr>
+                <tr>
+                    <td>icositetretta- (IT)</td>
+                    <td>icositetrecto- (it)</td>
+                    <td>10<sup>72</sup></td>
+                </tr>
+                <tr>
+                    <td>icosipentetta- (IP)</td>
+                    <td>icosipentecto- (ip)</td>
+                    <td>10<sup>75</sup></td>
+                </tr>
+                <tr>
+                    <td>icosihexetta- (IX)</td>
+                    <td>icosihexecto- (ix)</td>
+                    <td>10<sup>78</sup></td>
+                </tr>
+                <tr>
+                    <td>icosiheptetta- (IH)</td>
+                    <td>icosiheptecto- (iH)</td>
+                    <td>10<sup>81</sup></td>
+                </tr>
+                <tr>
+                    <td>icosioctetta- (IO)</td>
+                    <td>icosioctecto- (iO)</td>
+                    <td>10<sup>84</sup></td>
+                </tr>
+                <tr>
+                    <td>icosiennetta- (IE)</td>
+                    <td>icosiennecto- (ie)</td>
+                    <td>10<sup>87</sup></td>
+                </tr>
+                <tr>
+                    <td>triacontetta- (RC)</td>
+                    <td>triacontecto- (rc)</td>
+                    <td>10<sup>90</sup></td>
+                </tr>
+                <tr>
+                    <td>tetracontetta- (TC)</td>
+                    <td>tetracontecto- (tc)</td>
+                    <td>10<sup>120</sup></td>
+                </tr>
+                <tr>
+                    <td>pentacontetta- (PC)</td>
+                    <td>pentacontecto- (pc)</td>
+                    <td>10<sup>150</sup></td>
+                </tr>
+                <tr>
+                    <td>hexacontetta- (XC)</td>
+                    <td>hexacontecto- (xc)</td>
+                    <td>10<sup>180</sup></td>
+                </tr>
+                <tr>
+                    <td>heptacontetta- (HC)</td>
+                    <td>heptacontecto- (hc)</td>
+                    <td>10<sup>210</sup></td>
+                </tr>
+                <tr>
+                    <td>octacontetta- (OC)</td>
+                    <td>octacontecto- (oc)</td>
+                    <td>10<sup>240</sup></td>
+                </tr>
+                <tr>
+                    <td>enneacontetta- (EC)</td>
+                    <td>enneacontecto- (ec)</td>
+                    <td>10<sup>270</sup></td>
+                </tr>
+                <tr>
+                    <td>hectetta- (HE)</td>
+                    <td>hectecto- (he)</td>
+                    <td>10<sup>300</sup></td>
+                </tr>
+                <tr>
+                    <td>hectohenetta- (HEH)</td>
+                    <td>hectohenecto- (heh)</td>
+                    <td>10<sup>303</sup></td>
+                </tr>
+                <tr>
+                    <td>hectodecetta- (HEDE)</td>
+                    <td>hectodececto- (hede)</td>
+                    <td>10<sup>330</sup></td>
+                </tr>
+                <tr>
+                    <td>hectohendecetta- (HEHDE)</td>
+                    <td>hectohendececto- (hehde)</td>
+                    <td>10<sup>333</sup></td>
+                </tr>
+                <tr>
+                    <td>dihectetta- (DHE)</td>
+                    <td>dihectecto- (dhe)</td>
+                    <td>10<sup>600</sup></td>
+                </tr>
+                <tr>
+                    <td>trihectetta- (RHE)</td>
+                    <td>trihectecto- (rhe)</td>
+                    <td>10<sup>900</sup></td>
+                </tr>
+                <tr>
+                    <td>tetrahectetta- (THE)</td>
+                    <td>tetrahectecto- (the)</td>
+                    <td>10<sup>1,200</sup></td>
+                </tr>
+                <tr>
+                    <td>pentahectetta- (PHE)</td>
+                    <td>pentahectecto- (phe)</td>
+                    <td>10<sup>1,500</sup></td>
+                </tr>
+                <tr>
+                    <td>hexahectetta- (XHE)</td>
+                    <td>hexahectecto- (xhe)</td>
+                    <td>10<sup>1,800</sup></td>
+                </tr>
+                <tr>
+                    <td>heptahectetta- (HHE)</td>
+                    <td>heptahectecto- (hhe)</td>
+                    <td>10<sup>2,100</sup></td>
+                </tr>
+                <tr>
+                    <td>octahectetta- (OHE)</td>
+                    <td>octahectecto- (Ohe)</td>
+                    <td>10<sup>2,400</sup></td>
+                </tr>
+                <tr>
+                    <td>enneahectetta- (EHE)</td>
+                    <td>enneahectecto- (ehe)</td>
+                    <td>10<sup>2,700</sup></td>
+                </tr>
+                <tr>
+                    <td>kiletta- (KT)</td>
+                    <td>kilecto- (kt)</td>
+                    <td>10<sup>3,000</sup></td>
+                </tr>
+                <tr>
+                    <td>kilohenetta- (KHT)</td>
+                    <td>kilohenecto- (kht)</td>
+                    <td>10<sup>3,003</sup></td>
+                </tr>
+                <tr>
+                    <td>kilodecetta- (KDET)</td>
+                    <td>kilodececto- (kdet)</td>
+                    <td>10<sup>3,030</sup></td>
+                </tr>
+                <tr>
+                    <td>kilohectetta- (KHET)</td>
+                    <td>kilohectecto- (khet)</td>
+                    <td>10<sup>3,300</sup></td>
+                </tr>
+                <tr>
+                    <td>dikiletta- (DKT)</td>
+                    <td>dikilecto- (dkt)</td>
+                    <td>10<sup>6,000</sup></td>
+                </tr>
+                <tr>
+                    <td>trikiletta- (RKT)</td>
+                    <td>triklecto- (rkt)</td>
+                    <td>10<sup>9,000</sup></td>
+                </tr>
+                <tr>
+                    <td>tetrakiletta- (TKT)</td>
+                    <td>tetrakilecto- (tkt)</td>
+                    <td>10<sup>12,000</sup></td>
+                </tr>
+                <tr>
+                    <td>pentakiletta- (PKT)</td>
+                    <td>pentakilecto- (pkt)</td>
+                    <td>10<sup>15,000</sup></td>
+                </tr>
+                <tr>
+                    <td>hexakiletta- (XKT)</td>
+                    <td>hexakilecto- (xkt)</td>
+                    <td>10<sup>18,000</sup></td>
+                </tr>
+                <tr>
+                    <td>heptakiletta- (HKT)</td>
+                    <td>heptakilecto- (hkt)</td>
+                    <td>10<sup>21,000</sup></td>
+                </tr>
+                <tr>
+                    <td>octakiletta- (HKT)</td>
+                    <td>octakilecto- (hkt)</td>
+                    <td>10<sup>24,000</sup></td>
+                </tr>
+                <tr>
+                    <td>enneakiletta- (EKT)</td>
+                    <td>enneakilecto- (ekt)</td>
+                    <td>10<sup>27,000</sup></td>
+                </tr>
+                <tr>
+                    <td>decakiletta- (DKT)</td>
+                    <td>decakilecto- (dkt)</td>
+                    <td>10<sup>30,000</sup></td>
+                </tr>
+                <tr>
+                    <td>hectokiletta- (HEKT)</td>
+                    <td>hectokilecto- (hekt)</td>
+                    <td>10<sup>300,000</sup></td>
+                </tr>
+                <tr>
+                    <td>megetta- (MT)</td>
+                    <td>megecto- (mt)</td>
+                    <td>10<sup>3,000,000</sup></td>
+                </tr>
+                <tr>
+                    <td>decamegetta- (DEMT)</td>
+                    <td>decamegecto- (demt)</td>
+                    <td>10<sup>30,000,000</sup></td>
+                </tr>
+                <tr>
+                    <td>hectoamegetta- (HMT)</td>
+                    <td>hectomegecto- (hmt)</td>
+                    <td>10<sup>300,000,000</sup></td>
+                </tr>
+                <tr>
+                    <td>gigetta- (MT)</td>
+                    <td>gigecto- (mt)</td>
+                    <td>10<sup>3,000,000,000</sup></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script src="../js/jquery-3.6.3.min.js"></script>
+        <script>
+            $("#menu").load("menu.html");
+        </script>
+</body>
+
+</html>
