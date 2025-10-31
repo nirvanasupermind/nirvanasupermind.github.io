@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    </base>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dimensional successor array notation</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <div id="menu"></div>
+
+    <div id="content" class="content">
+        <p>Multiple array notation (MAN) is the fifth part of <a href="./successor-array-notation.html">successor array notation</a>.</p>
+
+        <p>Define an array as any
+            (possibly empty) list of non-negative integers (entries) separated by separators. A separator can be any amount of
+            arrays separated by semicolons and wrapped in round braces, like (1,2,3;4,5,6;7,8,9). The comma may be used a shorthand for the separator () or (0).
+
+            Let @ and # denote arbitrary arrays, let % denote any amount of arrays separated by semicolons (or just a separator without the round braces), and let $ denote an arbitrary separator. A valid expression is of the
+            form a{@}, where a can be any non-negative integer and is referred to as the
+            "base". In order to evaluate an expression into a number, the following rules should be used:</p>
+        <ol>
+            <li>a{} = a + 1</li>
+            <li>a{@$0} = a{@} (remove trailing zeros)</li>
+            <li>a{b$@} = a{b - 1$@}{b - 1$@} if b > 0</li>
+        </ol>
+        <p>If none of the rules apply, start this process starting from the first entry inside the curly brackets:</p>
+        <ol>
+            <li>If the entry is equal to 0, jump to the next entry.</li>
+            <li>If the entry is greater than 0, there must be a 0 preceding it.
+                <ol>
+                    <li>If there is a comma between the 0 and the nonzero entry, replace the "0, b" with "a, b - 1"
+                        where a is the base and b is the nonzero entry. The process ends.</li>
+                    <li>If there is a non-comma separator (n$@;%) where n > 0 between the 0 and the nonzero entry,
+                        replace the "0(n$@;%)b" with "a(n - 1$@;%)a(n - 1$@;%)...a(n - 1$@;%)a(n$@;%)b-1" with b copies
+                        of a before the (n$@;%), where a is the base and b is the nonzero entry. The process ends.</li>
+                    <li>If there is a non-comma separator (0$@;%) between the 0 and the nonzero entry, simplify the left
+                        half of the separator itself, removing trailing zeros (analogous to rule 2 of the notation)
+                        and/or applying this process on the numbers inside the left half of the separator until the left
+                        half of the separator cannot be simplified anymore. The process ends.</li>
+                    <li>If there is a non-comma separator (;n$@) where n > 0 between the 0 and the nonzero entry,
+                        replace the "0(;n$@)b" with s<sub>n</sub>(;n$@)b-1 where the string s<sub>k</sub> for
+                        non-negative integer k is defined recursively as follows:
+                        <ol>
+                            <li>s<sub>0</sub> = a</li>
+                            <li>s<sub>k</sub> = a(s<sub>k - 1</sub>;n - 1$@)a if k > 0</li>
+                        </ol>
+                        For example, s<sub>1</sub>= a(a;n - 1$@)a, and s<sub>2</sub> = a(a(a;n - 1$@)a;n - 1$@)a.
+                        The process ends.
+                    </li>
+                    <li>If there is a non-comma separator (;0$@) between the 0 and the nonzero entry, simplify the right
+                        half of the separator itself, removing trailing zeros (analogous to rule 2 of the notation)
+                        and/or applying this process on the numbers inside the right half of the separator until the
+                        right half of the separator cannot be simplified anymore. The process ends. </li>
+                </ol>
+            </li>
+        </ol>
+        <p>The application of the rules and/or process should be repeated until the expression is reduced to a number.
+        </p>
+        <h1>Comparison to fast-growing hierarchy</h1>
+        <p>I estimate that the limit of this notation is around &zeta;<sub>0</sub> in the FGH with the Veblen hierarchy as the
+            system of fundamental sequences. Below I will give the comparison of this notation to the fast-growing
+            hierarchy with the Veblen hierarchy as the system of fundamental sequences:</p>
+        <p>
+            a{0(;1)1} ≈ f<sub>&epsilon;<sub>0</sub></sub>(a)<br />
+            a{1(;1)1} ≈ f<sub>&epsilon;<sub>0</sub></sub><sup>2</sup>(a)<br />
+            a{2(;1)1} ≈ f<sub>&epsilon;<sub>0</sub></sub><sup>4</sup>(a)<br />
+            a{3(;1)1} ≈ f<sub>&epsilon;<sub>0</sub></sub><sup>8</sup>(a)<br />
+            a{4(;1)1} ≈ f<sub>&epsilon;<sub>0</sub></sub><sup>16</sup>(a)<br />
+            a{0,1(;1)1} ≈ f<sub>&epsilon;<sub>0</sub>+1</sub>(a)<br />
+            a{1,1(;1)1} ≈ f<sub>&epsilon;<sub>0</sub>+1</sub><sup>2</sup>(a)<br />
+            a{0,2(;1)1} ≈ f<sub>&epsilon;<sub>0</sub>+2</sub>(a)<br />
+            a{0,0,1(;1)1} ≈ f<sub>&epsilon;<sub>0</sub>+&omega;</sub>(a)<br />
+            a{0,0,0,1(;1)1} ≈ f<sub>&epsilon;<sub>0</sub>+&omega;<sup>2</sup></sub>(a)<br />
+            a{0(1)1(;1)1} ≈ f<sub>&epsilon;<sub>0</sub>+&omega;<sup>&omega;</sup></sub>(a)<br />
+            a{0(2)1(;1)1} ≈ f<sub>&epsilon;<sub>0</sub>+&omega;<sup>&omega;<sup>2</sup></sup></sub>(a)<br />
+            a{0(0,1)1(;1)1} ≈ f<sub>&epsilon;<sub>0</sub>+&omega;<sup>&omega;<sup>&omega;</sup></sup></sub>(a)<br />
+            a{0(;1)2} ≈ f<sub>&epsilon;<sub>0</sub>2</sub>(a)<br />
+            a{0(;1)3} ≈ f<sub>&epsilon;<sub>0</sub>3</sub>(a)<br />
+            a{0(;1)4} ≈ f<sub>&epsilon;<sub>0</sub>4</sub>(a)<br />
+            a{0(;1)0,1} ≈ f<sub>&epsilon;<sub>0</sub>&omega;</sub>(a)<br />
+            a{0(;1)0,0,1} ≈ f<sub>&epsilon;<sub>0</sub>&omega;<sup>2</sup></sub>(a)<br />
+            a{0(;1)0(1)1} ≈ f<sub>&epsilon;<sub>0</sub>&omega;<sup>&omega;</sup></sub>(a)<br />
+            a{0(;1)0(;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>2</sup></sub>(a)<br />
+            a{0(;1)0(;1)0(;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>3</sup></sub>(a)<br />
+            a{0(;1)0(;1)0(;1)0(;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>4</sup></sub>(a)<br />
+            a{0(1;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;</sup></sub>(a)<br />
+            a{0(1;1)2} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;</sup>2</sub>(a)<br />
+            a{0(1;1)0(;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;+1</sup></sub>(a)<br />
+            a{0(1;1)0(1;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;2</sup></sub>(a)<br />
+            a{0(1;1)0(1;1)0(1;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;3</sup></sub>(a)<br />
+            a{0(2;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;<sup>2</sup></sup></sub>(a)<br />
+            a{0(3;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;<sup>3</sup></sup></sub>(a)<br />
+            a{0(0,1;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;<sup>&omega;</sup></sup></sub>(a)<br />
+            a{0(0,0,1;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;<sup>&omega;<sup>2</sup></sup></sup></sub>(a)<br />
+            a{0(0(1)1;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&omega;<sup>&omega;<sup>&omega;</sup></sup></sup></sub>(a)<br />
+            a{0(0(;1)1;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&epsilon;<sub>0</sub></sup></sub>(a)<br />
+            a{0(0(0(;1)1;1)1;1)1} ≈ f<sub>&epsilon;<sub>0</sub><sup>&epsilon;<sub>0</sub><sup>&epsilon;<sub>0</sub></sup></sup></sub>(a)<br />
+            a{0(;2)1} ≈ f<sub>&epsilon;<sub>1</sub></sub>(a)<br />
+            a{0(;3)1} ≈ f<sub>&epsilon;<sub>2</sub></sub>(a)<br />
+            a{0(;4)1} ≈ f<sub>&epsilon;<sub>3</sub></sub>(a)<br />
+            a{0(;0,1)1} ≈ f<sub>&epsilon;<sub>&omega;</sub></sub>(a)<br />
+            a{0(;0,0,1)1} ≈ f<sub>&epsilon;<sub>&omega;<sup>2</sup></sub></sub>(a)<br />
+            a{0(;0(1)1)1} ≈ f<sub>&epsilon;<sub>&omega;<sup>&omega;</sup></sub></sub>(a)<br />
+            a{0(;0(;1)1)1} ≈ f<sub>&epsilon;<sub>&epsilon;<sub>0</sub></sub>(a)<br />
+            a{0(;0(;0(;1)1)1)1} ≈ f<sub>&epsilon;<sub>&epsilon;<sub>&epsilon;<sub>0</sub></sub></sub>(a)<br />
+        </p>
+        </p>
+
+    </div>
+
+
+
+    <script src="../js/jquery-3.6.3.min.js"></script>
+    <script>
+        $("$menu").load("menu.html");
+    </script>
+</body>
+
+</html>
